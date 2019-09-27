@@ -1,0 +1,21 @@
+{
+  "prefered": [
+    {
+    "field": "Serving walk-in customers",
+     "payload": "walk_in"
+    },
+    {
+      "field": "Tele-consultation",
+      "payload": "tele_consultation"
+    },{
+      "field": "Referrals through family/friends",
+      "payload": "referrals"
+    },{
+      "field": "Roadshows or prospecting in person",
+      "payload": "roadshows"
+    },{
+      "field": "Other methods",
+      "payload": "other"
+    }
+  ]
+}
