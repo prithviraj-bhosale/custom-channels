@@ -19,17 +19,17 @@ import java.io.InputStream;
 public class NtucSpringApplication {
   public static void main(String[] args) throws IOException {
     SpringApplication.run(NtucSpringApplication.class, args);
-    check();
+//    check();
   }
   @Bean RestTemplate restTemplate() {
     return new RestTemplate();
   }
 
-  public static void check() throws IOException {
-    ObjectMapper objectMapper = new ObjectMapper();
-    Preference preference = objectMapper.readValue(new File("/Users/admin/Downloads/NtucSpringBootApplication/src/main/resources/mostPrefred.json"), Preference.class);
-    System.out.println(preference);
-  }
+//  public static void check() throws IOException {
+//    ObjectMapper objectMapper = new ObjectMapper();
+//    Preference preference = objectMapper.readValue(new File("/Users/admin/Downloads/NtucSpringBootApplication/src/main/resources/mostPrefred.json"), Preference.class);
+//    System.out.println(preference);
+//  }
 }
 
 
