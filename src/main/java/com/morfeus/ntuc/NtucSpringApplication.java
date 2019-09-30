@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.morfeus.ntuc.model.preference.Preference;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.data.redis.RedisProperties;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.io.Resource;
@@ -13,6 +14,8 @@ import org.springframework.web.client.RestTemplate;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 @SpringBootApplication(scanBasePackages = {"com.morfeus"})
 @Cacheable
@@ -24,6 +27,7 @@ public class NtucSpringApplication {
   @Bean RestTemplate restTemplate() {
     return new RestTemplate();
   }
+
 
 //  public static void check() throws IOException {
 //    ObjectMapper objectMapper = new ObjectMapper();

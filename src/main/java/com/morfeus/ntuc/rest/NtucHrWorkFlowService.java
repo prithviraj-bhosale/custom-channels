@@ -14,7 +14,9 @@ import com.morfeus.ntuc.model.preference.model.CarousalTemplate;
 import com.morfeus.ntuc.model.preference.model.CarouselMessage;
 import com.morfeus.ntuc.model.preference.model.TextMessage;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.data.redis.RedisProperties;
 import org.springframework.core.io.ResourceLoader;
+import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,10 +24,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
+import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisPool;
+import redis.clients.jedis.JedisPoolConfig;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.*;
 
 @RestController
@@ -41,6 +48,9 @@ public class NtucHrWorkFlowService {
 
   @Autowired
   private RedisTemplate redisTemplate;
+
+  @Autowired
+  private RedisConnectionFactory jedisConnectionFactory;
 
   @PostMapping(path = "/ntuc/username/", consumes = "application/json", produces = "application/json")
   public MorfeusWebhookResponse getUserNameFromEntities(@RequestBody(required = true) String body,
