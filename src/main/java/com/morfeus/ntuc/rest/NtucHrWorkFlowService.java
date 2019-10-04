@@ -14,6 +14,7 @@ import com.morfeus.ntuc.model.preference.model.CarousalTemplate;
 import com.morfeus.ntuc.model.preference.model.CarouselMessage;
 import com.morfeus.ntuc.model.preference.model.TextMessage;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cglib.core.CollectionUtils;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.util.StringUtils;
@@ -240,9 +241,15 @@ public MorfeusWebhookResponse getMostPreferredTemplate(@RequestBody(required = t
       @RequestHeader(name = "X-Hub-Signature", required = true) String signature, HttpServletResponse response) throws Exception {
     MorfeusWebhookRequest request = objectMapper.readValue(body, MorfeusWebhookRequest.class);
     String customerId = request.getUser().getId() + "cardSelected";
-
+    String selectedCard = null;
     NlpV1 nlpV1 = (NlpV1) request.getNlp();
-    String selectedCard = nlpV1.getData().get("payloadData").get("data").get("bank-type.bank-type").asText();
+    if (nlpV1.getData().get("payloadData") != null) {
+      selectedCard = nlpV1.getData().get("payloadData").get("data").get("bank-type.bank-type").asText();
+    } else if (nlpV1.getData().get("maskedMessage") != null) {
+      selectedCard = nlpV1.getData().get("maskedMessage").asText();
+    } else {
+      selectedCard = request.getRequest().getText();
+    }
     redisTemplate.opsForValue().set(customerId, selectedCard);
     TextMessage textMessage = new TextMessage();
     textMessage.setContent("Please enter OK to proceed");
@@ -261,22 +268,29 @@ public MorfeusWebhookResponse getMostPreferredTemplate(@RequestBody(required = t
     MorfeusWebhookRequest request = objectMapper.readValue(body, MorfeusWebhookRequest.class);
     String customerId = request.getUser().getId();
     System.out.println(customerId + "confirmation");
+    String confirmation = null;
     NlpV1 nlpV1 = (NlpV1) request.getNlp();
-    String confirmation = nlpV1.getData().get("payloadData").get("data").get("bank-name.bank-name").asText();
+    if (nlpV1.getData().get("payloadData")!=null){
+       confirmation = nlpV1.getData().get("payloadData").get("data").get("bank-name.bank-name").asText();
+    }else if (nlpV1.getData().get("maskedMessage")!=null){
+      confirmation =nlpV1.getData().get("maskedMessage").asText();
+    }else{
+      confirmation = request.getRequest().getText();
+    }
     CarouselMessage carouselMessage = new CarouselMessage();
     Content content = new Content();
     String selectedCard = redisTemplate.opsForValue().get(customerId + "cardSelected").toString();
     String base = "Your Request for " + selectedCard + " Block card has been";
     String actualTitle = "";
-    if (confirmation.contains("CONFIRM")) {
+    if (confirmation.contains("CONFIRM") || confirmation.equalsIgnoreCase("confirm")) {
       actualTitle = base + " blocked successfully.";
     } else {
       actualTitle = base + " cancelled.";
     }
     String image = "";
-    if (selectedCard.contains("AXIS")) {
+    if (selectedCard.contains("AXIS") || selectedCard.equalsIgnoreCase("axis")) {
       image = "https://news.manikarthik.com/wp-content/uploads/Axis-Bank-Platinum-Credit-Card.png";
-    } else if (selectedCard.contains("HDFC")) {
+    } else if (selectedCard.contains("HDFC") || selectedCard.equalsIgnoreCase("hdfc")) {
       image = "https://cards.jetprivilege.com/cards/HDFC-Jet-Privilege-World-DI-Card_final-24-10-17-011519069130907.jpg";
     } else {
       image = "https://image3.mouthshut.com/images/imagesp/925006383s.png";
@@ -303,7 +317,14 @@ public MorfeusWebhookResponse getMostPreferredTemplate(@RequestBody(required = t
     String customerId = request.getUser().getId() + "source";
 
     NlpV1 nlpV1 = (NlpV1) request.getNlp();
-    String selectedCard = nlpV1.getData().get("payloadData").get("data").get("source.source").asText();
+    String selectedCard = null;
+    if (nlpV1.getData().get("payloadData")!=null){
+    selectedCard = nlpV1.getData().get("payloadData").get("data").get("source.source").asText();
+    }else if(nlpV1.getData().get("maskedMessage")!=null){
+      selectedCard= nlpV1.getData().get("maskedMessage").asText();
+    }else{
+      selectedCard = request.getRequest().getText();
+    }
     redisTemplate.opsForValue().set(customerId, selectedCard);
     TextMessage textMessage = new TextMessage();
     textMessage.setContent("Please confirm " + selectedCard + " as your source");
@@ -320,9 +341,15 @@ public MorfeusWebhookResponse getMostPreferredTemplate(@RequestBody(required = t
       @RequestHeader(name = "X-Hub-Signature", required = true) String signature, HttpServletResponse response) throws Exception {
     MorfeusWebhookRequest request = objectMapper.readValue(body, MorfeusWebhookRequest.class);
     String customerId = request.getUser().getId() + "destination";
-
+    String selectedCard = null;
     NlpV1 nlpV1 = (NlpV1) request.getNlp();
-    String selectedCard = nlpV1.getData().get("payloadData").get("data").get("destination.destination").asText();
+    if (nlpV1.getData().get("payloadData") != null) {
+      selectedCard = nlpV1.getData().get("payloadData").get("data").get("destination.destination").asText();
+    } else if (nlpV1.getData().get("maskedMessage") != null) {
+      selectedCard = nlpV1.getData().get("maskedMessage").asText();
+    } else {
+      selectedCard = request.getRequest().getText();
+    }
     redisTemplate.opsForValue().set(customerId, selectedCard);
     TextMessage textMessage = new TextMessage();
     textMessage.setContent("Please confirm " + selectedCard + " as your destination");
@@ -339,9 +366,15 @@ public MorfeusWebhookResponse getMostPreferredTemplate(@RequestBody(required = t
       @RequestHeader(name = "X-Hub-Signature", required = true) String signature, HttpServletResponse response) throws Exception {
     MorfeusWebhookRequest request = objectMapper.readValue(body, MorfeusWebhookRequest.class);
     String customerId = request.getUser().getId() + "date";
-
+    String selectedCard;
     NlpV1 nlpV1 = (NlpV1) request.getNlp();
-    String selectedCard = nlpV1.getData().get("payloadData").get("data").get("date.date").asText();
+    if (nlpV1.getData().get("payloadData") != null) {
+      selectedCard = nlpV1.getData().get("payloadData").get("data").get("date.date").asText();
+    } else if (nlpV1.getData().get("maskedMessage") != null) {
+      selectedCard = nlpV1.getData().get("maskedMessage").asText();
+    } else {
+      selectedCard = request.getRequest().getText();
+    }
     redisTemplate.opsForValue().set(customerId, selectedCard);
     TextMessage textMessage = new TextMessage();
     textMessage.setContent("Please confirm the journey date: " + selectedCard);
@@ -358,9 +391,15 @@ public MorfeusWebhookResponse getMostPreferredTemplate(@RequestBody(required = t
       @RequestHeader(name = "X-Hub-Signature", required = true) String signature, HttpServletResponse response) throws Exception {
     MorfeusWebhookRequest request = objectMapper.readValue(body, MorfeusWebhookRequest.class);
     String customerId = request.getUser().getId() + "class";
-
+    String selectedCard = null;
     NlpV1 nlpV1 = (NlpV1) request.getNlp();
-    String selectedCard = nlpV1.getData().get("payloadData").get("data").get("class.class").asText();
+    if (nlpV1.getData().get("payloadData") != null) {
+      selectedCard = nlpV1.getData().get("payloadData").get("data").get("class.class").asText();
+    } else if (nlpV1.getData().get("maskedMessage") != null) {
+      selectedCard = nlpV1.getData().get("maskedMessage").asText();
+    } else {
+      selectedCard = request.getRequest().getText();
+    }
     redisTemplate.opsForValue().set(customerId, selectedCard);
     TextMessage textMessage = new TextMessage();
     textMessage.setContent("Please confirm your ticket class: " + selectedCard + " class");
@@ -381,9 +420,14 @@ public MorfeusWebhookResponse getMostPreferredTemplate(@RequestBody(required = t
     NlpV1 nlpV1 = (NlpV1) request.getNlp();
     CarouselMessage carouselMessage = new CarouselMessage();
     Content content = new Content();
-
-    String confirmation = nlpV1.getData().get("payloadData").get("data").get("confirm.confirm").asText();
-
+    String confirmation = null;
+    if (nlpV1.getData().get("payloadData") != null) {
+      confirmation = nlpV1.getData().get("payloadData").get("data").get("confirm.confirm").asText();
+    } else if (nlpV1.getData().get("maskedMessage") != null) {
+      confirmation = nlpV1.getData().get("maskedMessage").asText();
+    } else {
+      confirmation = request.getRequest().getText();
+    }
     String source = redisTemplate.opsForValue().get(customerId + "source").toString();
     String destination = redisTemplate.opsForValue().get(customerId + "destination").toString();
     String date = redisTemplate.opsForValue().get(customerId + "date").toString();

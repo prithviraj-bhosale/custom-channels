@@ -1,7 +1,9 @@
-/Users/Pritesh/PKS/code/develop/custom-channels/src/main/java/com/morfeus/ntuc/model/preference/model/CarousalTemplate.java
-/Users/Pritesh/PKS/code/develop/custom-channels/src/main/java/com/morfeus/ntuc/NtucSpringApplication.java
-/Users/Pritesh/PKS/code/develop/custom-channels/src/main/java/com/morfeus/ntuc/rest/NtucHrWorkFlowService.java
-/Users/Pritesh/PKS/code/develop/custom-channels/src/main/java/com/morfeus/ntuc/model/preference/Preference.java
-/Users/Pritesh/PKS/code/develop/custom-channels/src/main/java/com/morfeus/ntuc/model/preference/Prefered.java
-/Users/Pritesh/PKS/code/develop/custom-channels/src/main/java/com/morfeus/ntuc/model/preference/model/ListTemplate.java
-/Users/Pritesh/PKS/code/develop/custom-channels/src/main/java/com/morfeus/ntuc/model/preference/model/Button.java
+/Users/admin/Desktop/develop/custom-channels/src/main/java/com/morfeus/ntuc/model/preference/model/CarousalTemplate.java
+/Users/admin/Desktop/develop/custom-channels/src/main/java/com/morfeus/ntuc/rest/NtucHrWorkFlowService.java
+/Users/admin/Desktop/develop/custom-channels/src/main/java/com/morfeus/ntuc/model/preference/Prefered.java
+/Users/admin/Desktop/develop/custom-channels/src/main/java/com/morfeus/ntuc/model/preference/model/CarouselMessage.java
+/Users/admin/Desktop/develop/custom-channels/src/main/java/com/morfeus/ntuc/NtucSpringApplication.java
+/Users/admin/Desktop/develop/custom-channels/src/main/java/com/morfeus/ntuc/model/preference/model/Button.java
+/Users/admin/Desktop/develop/custom-channels/src/main/java/com/morfeus/ntuc/model/preference/model/ListTemplate.java
+/Users/admin/Desktop/develop/custom-channels/src/main/java/com/morfeus/ntuc/model/preference/Preference.java
+/Users/admin/Desktop/develop/custom-channels/src/main/java/com/morfeus/ntuc/model/preference/model/TextMessage.java

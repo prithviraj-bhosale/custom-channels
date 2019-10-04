@@ -1,7 +1,9 @@
 com/morfeus/ntuc/model/preference/model/ListTemplate.class
 com/morfeus/ntuc/rest/NtucHrWorkFlowService.class
+com/morfeus/ntuc/model/preference/model/TextMessage.class
 com/morfeus/ntuc/model/preference/Preference.class
 com/morfeus/ntuc/model/preference/model/Button.class
 com/morfeus/ntuc/NtucSpringApplication.class
+com/morfeus/ntuc/model/preference/model/CarouselMessage.class
 com/morfeus/ntuc/model/preference/model/CarousalTemplate.class
 com/morfeus/ntuc/model/preference/Prefered.class
