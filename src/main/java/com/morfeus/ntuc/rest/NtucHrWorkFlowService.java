@@ -251,6 +251,9 @@ public MorfeusWebhookResponse getMostPreferredTemplate(@RequestBody(required = t
     } else {
       selectedCard = request.getRequest().getText();
     }
+    customerId += request.getBot().getChannelId();
+    System.out.println("Redis key for card selection -> " + customerId);
+    System.out.println("Redis value for card selection -> " + selectedCard);
     redisTemplate.opsForValue().set(customerId, selectedCard, 5, TimeUnit.MINUTES);
     TextMessage textMessage = new TextMessage();
     textMessage.setContent("Please enter OK to proceed");
@@ -280,7 +283,9 @@ public MorfeusWebhookResponse getMostPreferredTemplate(@RequestBody(required = t
     }
     CarouselMessage carouselMessage = new CarouselMessage();
     Content content = new Content();
-    String selectedCard = redisTemplate.opsForValue().get(customerId + "cardSelected").toString();
+    customerId = customerId + "cardSelected" + request.getBot().getChannelId();
+    System.out.println("Redis key for card selection -> " + customerId);
+    String selectedCard = redisTemplate.opsForValue().get(customerId + "cardSelected" + request.getBot().getChannelId()).toString();
     String base = "Your Request for " + selectedCard + " Block card has been";
     String actualTitle = "";
     if (confirmation.contains("CONFIRM") || confirmation.equalsIgnoreCase("confirm")) {
