@@ -42,7 +42,7 @@ public class NtucHrWorkFlowService {
   private ResourceLoader resourceLoader;
 
   @Autowired
-  private RedisTemplate redisTemplate;
+  private RedisTemplate<String, String> redisTemplate;
 
   @PostMapping(path = "/ntuc/username/", consumes = "application/json", produces = "application/json")
   public MorfeusWebhookResponse getUserNameFromEntities(@RequestBody(required = true) String body,
