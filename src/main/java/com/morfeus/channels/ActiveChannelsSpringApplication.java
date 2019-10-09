@@ -10,9 +10,9 @@ import java.io.IOException;
 
 @SpringBootApplication(scanBasePackages = {"com.morfeus"})
 @Cacheable
-public class NtucSpringApplication {
+public class ActiveChannelsSpringApplication {
   public static void main(String[] args) throws IOException {
-    SpringApplication.run(NtucSpringApplication.class, args);
+    SpringApplication.run(ActiveChannelsSpringApplication.class, args);
 //    check();
   }
   @Bean RestTemplate restTemplate() {

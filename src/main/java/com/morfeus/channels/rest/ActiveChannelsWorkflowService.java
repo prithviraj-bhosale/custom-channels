@@ -3,6 +3,7 @@ package com.morfeus.channels.rest;
 
 import ai.active.fulfillment.webhook.data.request.MorfeusWebhookRequest;
 import ai.active.fulfillment.webhook.data.request.NlpV1;
+import ai.active.fulfillment.webhook.data.request.WorkflowParams;
 import ai.active.fulfillment.webhook.data.response.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.morfeus.channels.model.preference.model.CarouselMessage;
@@ -22,7 +23,7 @@ import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 @RestController
-public class NtucHrWorkFlowService {
+public class ActiveChannelsWorkflowService {
     String username = null;
     @Autowired
     private ObjectMapper objectMapper;
@@ -68,7 +69,7 @@ public class NtucHrWorkFlowService {
   }
 
 
-  // block card - acknowledgement
+  // block card - acknowledgement - redis impl
   @PostMapping(path = "/blockcard/confirmation", consumes = "application/json", produces = "application/json")
   public MorfeusWebhookResponse confirmationCall(@RequestBody(required = true) String body,
       @RequestHeader(name = "X-Hub-Signature", required = true) String signature, HttpServletResponse response) throws Exception {
@@ -109,6 +110,50 @@ public class NtucHrWorkFlowService {
     content.setImage(image);
     List<Content> contents = new ArrayList<>();
     contents.add(content);
+    carouselMessage.setContent(contents);
+    carouselMessage.setType("carousel");
+    MorfeusWebhookResponse messageWrapper = new MorfeusWebhookResponse();
+    messageWrapper.setMessages(Arrays.asList(carouselMessage));
+    messageWrapper.setStatus(Status.SUCCESS);
+    return messageWrapper;
+  }
+
+  // block card - acknowledgement - non-redis workflow impl
+  @PostMapping(path = "/blockcard/confirmation2", consumes = "application/json", produces = "application/json")
+  public MorfeusWebhookResponse confirmationCall2(@RequestBody(required = true) String body,
+      @RequestHeader(name = "X-Hub-Signature", required = true) String signature, HttpServletResponse response) throws Exception {
+    MorfeusWebhookRequest request = objectMapper.readValue(body, MorfeusWebhookRequest.class);
+    WorkflowParams workflowParams = request.getWorkflowParams();
+    Map<String, String> workflowParameters = workflowParams.getWorkflowVariables();
+    Map<String, String> requestParams = workflowParams.getRequestVariables();
+    String selectedCard = null, confirmation = null;
+    if (workflowParameters.containsKey("bank_type_bank_type_Step_1")) {
+      selectedCard = workflowParameters.get("bank_type_bank_type_Step_1");
+    }
+    if (requestParams.containsKey("bank_name_bank_name")) {
+      confirmation = workflowParameters.get("bank_name_bank_name");
+    }
+    String base = "Your Request for " + selectedCard + " Block card has been";
+    String actualTitle = "";
+    if (confirmation.contains("CONFIRM") || confirmation.equalsIgnoreCase("confirm")) {
+      actualTitle = base + " blocked successfully.";
+    } else {
+      actualTitle = base + " cancelled.";
+    }
+    String image = "";
+    if (selectedCard.contains("AXIS") || selectedCard.equalsIgnoreCase("axis")) {
+      image = "https://news.manikarthik.com/wp-content/uploads/Axis-Bank-Platinum-Credit-Card.png";
+    } else if (selectedCard.contains("HDFC") || selectedCard.equalsIgnoreCase("hdfc")) {
+      image = "https://cards.jetprivilege.com/cards/HDFC-Jet-Privilege-World-DI-Card_final-24-10-17-011519069130907.jpg";
+    } else {
+      image = "https://image3.mouthshut.com/images/imagesp/925006383s.png";
+    }
+    Content content = new Content();
+    content.setTitle(actualTitle);
+    content.setImage(image);
+    List<Content> contents = new ArrayList<>();
+    contents.add(content);
+    CarouselMessage carouselMessage = new CarouselMessage();
     carouselMessage.setContent(contents);
     carouselMessage.setType("carousel");
     MorfeusWebhookResponse messageWrapper = new MorfeusWebhookResponse();
