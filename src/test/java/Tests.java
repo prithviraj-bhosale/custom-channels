@@ -1,9 +1,8 @@
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.morfeus.ntuc.model.preference.Preference;
+import com.morfeus.channels.model.preference.Preference;
 import org.junit.Test;
 import org.springframework.core.io.ClassPathResource;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
