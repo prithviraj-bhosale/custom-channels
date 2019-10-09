@@ -28,6 +28,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 @RestController
 public class NtucHrWorkFlowService {
@@ -250,7 +251,7 @@ public MorfeusWebhookResponse getMostPreferredTemplate(@RequestBody(required = t
     } else {
       selectedCard = request.getRequest().getText();
     }
-    redisTemplate.opsForValue().set(customerId, selectedCard);
+    redisTemplate.opsForValue().set(customerId, selectedCard, 5, TimeUnit.MINUTES);
     TextMessage textMessage = new TextMessage();
     textMessage.setContent("Please enter OK to proceed");
     textMessage.setType("text");
@@ -325,7 +326,7 @@ public MorfeusWebhookResponse getMostPreferredTemplate(@RequestBody(required = t
     }else{
       selectedCard = request.getRequest().getText();
     }
-    redisTemplate.opsForValue().set(customerId, selectedCard);
+    redisTemplate.opsForValue().set(customerId, selectedCard, 5, TimeUnit.MINUTES);
     TextMessage textMessage = new TextMessage();
     textMessage.setContent("Please confirm " + selectedCard + " as your source");
     textMessage.setType("text");
@@ -350,7 +351,7 @@ public MorfeusWebhookResponse getMostPreferredTemplate(@RequestBody(required = t
     } else {
       selectedCard = request.getRequest().getText();
     }
-    redisTemplate.opsForValue().set(customerId, selectedCard);
+    redisTemplate.opsForValue().set(customerId, selectedCard, 5, TimeUnit.MINUTES);
     TextMessage textMessage = new TextMessage();
     textMessage.setContent("Please confirm " + selectedCard + " as your destination");
     textMessage.setType("text");
@@ -375,7 +376,7 @@ public MorfeusWebhookResponse getMostPreferredTemplate(@RequestBody(required = t
     } else {
       selectedCard = request.getRequest().getText();
     }
-    redisTemplate.opsForValue().set(customerId, selectedCard);
+    redisTemplate.opsForValue().set(customerId, selectedCard, 5, TimeUnit.MINUTES);
     TextMessage textMessage = new TextMessage();
     textMessage.setContent("Please confirm the journey date: " + selectedCard);
     textMessage.setType("text");
@@ -400,7 +401,7 @@ public MorfeusWebhookResponse getMostPreferredTemplate(@RequestBody(required = t
     } else {
       selectedCard = request.getRequest().getText();
     }
-    redisTemplate.opsForValue().set(customerId, selectedCard);
+    redisTemplate.opsForValue().set(customerId, selectedCard, 5, TimeUnit.MINUTES);
     TextMessage textMessage = new TextMessage();
     textMessage.setContent("Please confirm your ticket class: " + selectedCard + " class");
     textMessage.setType("text");
