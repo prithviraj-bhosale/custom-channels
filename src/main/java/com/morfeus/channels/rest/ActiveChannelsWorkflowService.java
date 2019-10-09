@@ -138,8 +138,10 @@ public class ActiveChannelsWorkflowService {
     String base = "Your Request for " + selectedCard + " Block card has been";
     String actualTitle = "";
     if (confirmation != null && confirmation.equalsIgnoreCase("confirm")) {
+      base = "Your " + selectedCard + " card has been";
       actualTitle = base + " blocked successfully.";
     } else {
+      base = "Your Request for " + selectedCard + " Block card has been";
       actualTitle = base + " cancelled.";
     }
     String image = "";
@@ -330,7 +332,7 @@ public class ActiveChannelsWorkflowService {
       source = workflowParameters.get("source_source_Step_1");
       System.out.println("PKS: Source identified");
     }
-    if (requestParams.containsKey("destination_destination_Step_3")) {
+    if (workflowParameters.containsKey("destination_destination_Step_3")) {
       destination = workflowParameters.get("destination_destination_Step_3");
       System.out.println("PKS: Destination identified");
     }
@@ -338,11 +340,11 @@ public class ActiveChannelsWorkflowService {
       date = workflowParameters.get("date_date_Step_5");
       System.out.println("PKS: Date identified");
     }
-    if (requestParams.containsKey("class_class_Step_8")) {
+    if (workflowParameters.containsKey("class_class_Step_8")) {
       classs = workflowParameters.get("class_class_Step_8");
       System.out.println("PKS: Class identified");
     }
-    if (requestParams.containsKey("confirm_confirm_Step_10")) {
+    if (workflowParameters.containsKey("confirm_confirm_Step_10")) {
       confirmation = workflowParameters.get("confirm_confirm_Step_10");
       System.out.println("PKS: Confirmation identified");
     }
