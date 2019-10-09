@@ -137,15 +137,15 @@ public class ActiveChannelsWorkflowService {
     }
     String base = "Your Request for " + selectedCard + " Block card has been";
     String actualTitle = "";
-    if (!confirmation.isEmpty() && confirmation.equalsIgnoreCase("confirm")) {
+    if (confirmation != null && confirmation.equalsIgnoreCase("confirm")) {
       actualTitle = base + " blocked successfully.";
     } else {
       actualTitle = base + " cancelled.";
     }
     String image = "";
-    if (!selectedCard.isEmpty() && selectedCard.equalsIgnoreCase("axis")) {
+    if (selectedCard != null && selectedCard.equalsIgnoreCase("axis")) {
       image = "https://news.manikarthik.com/wp-content/uploads/Axis-Bank-Platinum-Credit-Card.png";
-    } else if (selectedCard.equalsIgnoreCase("hdfc")) {
+    } else if (selectedCard != null && selectedCard.equalsIgnoreCase("hdfc")) {
       image = "https://cards.jetprivilege.com/cards/HDFC-Jet-Privilege-World-DI-Card_final-24-10-17-011519069130907.jpg";
     } else {
       image = "https://image3.mouthshut.com/images/imagesp/925006383s.png";
