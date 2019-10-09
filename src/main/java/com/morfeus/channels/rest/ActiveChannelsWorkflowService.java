@@ -266,7 +266,7 @@ public class ActiveChannelsWorkflowService {
     return messageWrapper;
   }
 
-  // book ticket - acknowledgement
+  // book ticket - acknowledgement redis impl
   @PostMapping(path = "/bookticket/confirm", consumes = "application/json", produces = "application/json")
   public MorfeusWebhookResponse bookConfirmationCall(@RequestBody(required = true) String body,
       @RequestHeader(name = "X-Hub-Signature", required = true) String signature, HttpServletResponse response) throws Exception {
@@ -295,6 +295,64 @@ public class ActiveChannelsWorkflowService {
       image = "https://ukcareguide.co.uk/media/check-mark-green-tick-mark.png";
     } else {
       base = "Your " + bookingClass + " class ticket for " + source + " to " + destination + " on " + date + " was not booked.";
+      image = "https://cdn.pixabay.com/photo/2012/04/12/13/15/red-29985_960_720.png";
+    }
+
+    content.setTitle(base);
+    content.setImage(image);
+    List<Content> contents = new ArrayList<>();
+    contents.add(content);
+    carouselMessage.setContent(contents);
+    carouselMessage.setType("carousel");
+    MorfeusWebhookResponse messageWrapper = new MorfeusWebhookResponse();
+    messageWrapper.setMessages(Arrays.asList(carouselMessage));
+    messageWrapper.setStatus(Status.SUCCESS);
+    return messageWrapper;
+  }
+
+
+  // book ticket - acknowledgement non-redis impl
+  @PostMapping(path = "/bookticket/confirm2", consumes = "application/json", produces = "application/json")
+  public MorfeusWebhookResponse bookConfirmationCall2(@RequestBody(required = true) String body,
+      @RequestHeader(name = "X-Hub-Signature", required = true) String signature, HttpServletResponse response) throws Exception {
+    MorfeusWebhookRequest request = objectMapper.readValue(body, MorfeusWebhookRequest.class);
+    String customerId = request.getUser().getId();
+    System.out.println(customerId + "booking");
+    CarouselMessage carouselMessage = new CarouselMessage();
+    Content content = new Content();
+
+    WorkflowParams workflowParams = request.getWorkflowParams();
+    Map<String, String> workflowParameters = workflowParams.getWorkflowVariables();
+    Map<String, String> requestParams = workflowParams.getRequestVariables();
+    String source = null, destination = null, date = null, classs = null, confirmation = null;
+
+    if (workflowParameters.containsKey("source_source_Step_1")) {
+      source = workflowParameters.get("source_source_Step_1");
+      System.out.println("PKS: Source identified");
+    }
+    if (requestParams.containsKey("destination_destination_Step_3")) {
+      destination = workflowParameters.get("destination_destination_Step_3");
+      System.out.println("PKS: Destination identified");
+    }
+    if (workflowParameters.containsKey("date_date_Step_5")) {
+      date = workflowParameters.get("date_date_Step_5");
+      System.out.println("PKS: Date identified");
+    }
+    if (requestParams.containsKey("class_class_Step_8")) {
+      classs = workflowParameters.get("class_class_Step_8");
+      System.out.println("PKS: Class identified");
+    }
+    if (requestParams.containsKey("confirm_confirm_Step_10")) {
+      confirmation = workflowParameters.get("confirm_confirm_Step_10");
+      System.out.println("PKS: Confirmation identified");
+    }
+
+    String base, image;
+    if (StringUtils.startsWithIgnoreCase(confirmation, "y")) {
+      base = "Your " + classs + " class ticket for " + source + " to " + destination + " on " + date + " has been booked successfully.";
+      image = "https://ukcareguide.co.uk/media/check-mark-green-tick-mark.png";
+    } else {
+      base = "Your " + classs + " class ticket for " + source + " to " + destination + " on " + date + " was not booked.";
       image = "https://cdn.pixabay.com/photo/2012/04/12/13/15/red-29985_960_720.png";
     }
 
