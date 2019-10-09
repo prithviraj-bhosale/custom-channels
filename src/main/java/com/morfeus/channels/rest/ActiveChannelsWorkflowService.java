@@ -129,19 +129,21 @@ public class ActiveChannelsWorkflowService {
     String selectedCard = null, confirmation = null;
     if (workflowParameters.containsKey("bank_type_bank_type_Step_1")) {
       selectedCard = workflowParameters.get("bank_type_bank_type_Step_1");
+      System.out.println("PKS: Card identified");
     }
     if (requestParams.containsKey("bank_name_bank_name")) {
       confirmation = workflowParameters.get("bank_name_bank_name");
+      System.out.println("PKS: Action identified");
     }
     String base = "Your Request for " + selectedCard + " Block card has been";
     String actualTitle = "";
-    if (confirmation.equalsIgnoreCase("confirm")) {
+    if (!confirmation.isEmpty() && confirmation.equalsIgnoreCase("confirm")) {
       actualTitle = base + " blocked successfully.";
     } else {
       actualTitle = base + " cancelled.";
     }
     String image = "";
-    if (selectedCard.equalsIgnoreCase("axis")) {
+    if (!selectedCard.isEmpty() && selectedCard.equalsIgnoreCase("axis")) {
       image = "https://news.manikarthik.com/wp-content/uploads/Axis-Bank-Platinum-Credit-Card.png";
     } else if (selectedCard.equalsIgnoreCase("hdfc")) {
       image = "https://cards.jetprivilege.com/cards/HDFC-Jet-Privilege-World-DI-Card_final-24-10-17-011519069130907.jpg";
