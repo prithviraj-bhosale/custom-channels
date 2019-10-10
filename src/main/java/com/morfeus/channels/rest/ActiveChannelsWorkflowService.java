@@ -129,15 +129,15 @@ public class ActiveChannelsWorkflowService {
     String selectedCard = null, confirmation = null;
     if (workflowParameters.containsKey("bank_type_bank_type_Step_1")) {
       selectedCard = workflowParameters.get("bank_type_bank_type_Step_1");
-      System.out.println("PKS: Card identified");
+      System.out.println("PKS: Card identified -> " + selectedCard);
     }
     if (requestParams.containsKey("bank_name_bank_name")) {
       confirmation = workflowParameters.get("bank_name_bank_name");
-      System.out.println("PKS: Action identified");
+      System.out.println("PKS: Action identified -> " + confirmation);
     }
     String base = "Your Request for " + selectedCard + " Block card has been";
     String actualTitle = "";
-    if (confirmation != null && confirmation.equalsIgnoreCase("confirm")) {
+    if ((confirmation != null) && (confirmation.equalsIgnoreCase("confirm") || confirmation.equalsIgnoreCase("CONFIRM"))) {
       base = "Your " + selectedCard + " card has been";
       actualTitle = base + " blocked successfully.";
     } else {
