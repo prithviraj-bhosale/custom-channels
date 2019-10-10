@@ -131,8 +131,8 @@ public class ActiveChannelsWorkflowService {
       selectedCard = workflowParameters.get("bank_type_bank_type_Step_1");
       System.out.println("PKS: Card identified -> " + selectedCard);
     }
-    if (requestParams.containsKey("bank_name_bank_name")) {
-      confirmation = workflowParameters.get("bank_name_bank_name");
+    if (workflowParameters.containsKey("bank_name_bank_name_Step_3")) {
+      confirmation = workflowParameters.get("bank_name_bank_name_Step_3");
       System.out.println("PKS: Action identified -> " + confirmation);
     }
     String base = "Your Request for " + selectedCard + " Block card has been";
