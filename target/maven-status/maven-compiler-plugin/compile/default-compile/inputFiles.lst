@@ -1,10 +1,9 @@
 /Users/Pritesh/PKS/code/develop/custom-channels/src/main/java/com/morfeus/channels/model/preference/model/ListTemplate.java
-/Users/Pritesh/PKS/code/develop/custom-channels/src/main/java/com/morfeus/channels/rest/NtucHrWorkFlowService.java
 /Users/Pritesh/PKS/code/develop/custom-channels/src/main/java/com/morfeus/channels/model/preference/Preference.java
 /Users/Pritesh/PKS/code/develop/custom-channels/src/main/java/com/morfeus/channels/model/preference/model/TextMessage.java
 /Users/Pritesh/PKS/code/develop/custom-channels/src/main/java/com/morfeus/channels/model/preference/Prefered.java
+/Users/Pritesh/PKS/code/develop/custom-channels/src/main/java/com/morfeus/channels/ActiveChannelsSpringApplication.java
 /Users/Pritesh/PKS/code/develop/custom-channels/src/main/java/com/morfeus/channels/model/preference/model/Button.java
-/Users/Pritesh/PKS/code/develop/custom-channels/src/main/java/com/morfeus/channels/NtucSpringApplication.java
-/Users/Pritesh/PKS/code/develop/custom-channels/src/main/java/com/morfeus/channels/config/SpringConfig.java
+/Users/Pritesh/PKS/code/develop/custom-channels/src/main/java/com/morfeus/channels/rest/ActiveChannelsWorkflowService.java
 /Users/Pritesh/PKS/code/develop/custom-channels/src/main/java/com/morfeus/channels/model/preference/model/CarousalTemplate.java
 /Users/Pritesh/PKS/code/develop/custom-channels/src/main/java/com/morfeus/channels/model/preference/model/CarouselMessage.java

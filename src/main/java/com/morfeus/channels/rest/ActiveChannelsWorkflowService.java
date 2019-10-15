@@ -370,4 +370,58 @@ public class ActiveChannelsWorkflowService {
     return messageWrapper;
   }
 
+  @PostMapping(path = "/blockcard/confirmation3", consumes = "application/json", produces = "application/json")
+  public MorfeusWebhookResponse confirmationCall3(@RequestBody(required = true) String body,
+      @RequestHeader(name = "X-Hub-Signature", required = true) String signature, HttpServletResponse response) throws Exception {
+    MorfeusWebhookRequest request = objectMapper.readValue(body, MorfeusWebhookRequest.class);
+    WorkflowParams workflowParams = request.getWorkflowParams();
+    Map<String, String> workflowParameters = workflowParams.getWorkflowVariables();
+    Map<String, String> requestParams = workflowParams.getRequestVariables();
+    String selectedCard = null, confirmation = null, cardBlockage = null;
+    if (workflowParameters.containsKey("bank_type_bank_type_Step_1")) {
+      selectedCard = workflowParameters.get("bank_type_bank_type_Step_1");
+      System.out.println("PKS: Card identified");
+    }
+    if (requestParams.containsKey("bank_name_bank_name_Step_2")) {
+      cardBlockage = workflowParameters.get("bank_name_bank_name_Step_2");
+      System.out.println("PKS: Card Blockage identified");
+    }
+    if (requestParams.containsKey("destination_destination_Step_4")) {
+      confirmation = workflowParameters.get("destination_destination_Step_4");
+      System.out.println("PKS: Action identified");
+    }
+    String base = "Your Request for " + selectedCard + " Block card has been";
+    String actualTitle = "";
+    if (confirmation != null && confirmation.equalsIgnoreCase("confirm")) {
+      base = "Your " + selectedCard + " card has been";
+      actualTitle = base + cardBlockage+" blocked successfully.";
+    } else {
+      base = "Your Request for " + selectedCard + " Block card has been";
+      actualTitle = base + " cancelled.";
+    }
+    String image = "";
+    if (selectedCard != null && selectedCard.equalsIgnoreCase("7308")) {
+      image = "https://images.aerlingus.com/resrc-origin/s=w340,pd2.6/o=80/https://www.aerlingus.com/media/images/content/aerclub/aer-credit-card-image1.png";
+    }
+    else if (selectedCard != null && selectedCard.equalsIgnoreCase("0000")) {
+      image = "https://news.manikarthik.com/wp-content/uploads/Axis-Bank-Platinum-Credit-Card.png";
+    } else if (selectedCard != null && selectedCard.equalsIgnoreCase("0001")) {
+      image = "https://cards.jetprivilege.com/cards/HDFC-Jet-Privilege-World-DI-Card_final-24-10-17-011519069130907.jpg";
+    } else {
+      image = "https://image3.mouthshut.com/images/imagesp/925006383s.png";
+    }
+    Content content = new Content();
+    content.setTitle(actualTitle);
+    content.setImage(image);
+    List<Content> contents = new ArrayList<>();
+    contents.add(content);
+    CarouselMessage carouselMessage = new CarouselMessage();
+    carouselMessage.setContent(contents);
+    carouselMessage.setType("carousel");
+    MorfeusWebhookResponse messageWrapper = new MorfeusWebhookResponse();
+    messageWrapper.setMessages(Arrays.asList(carouselMessage));
+    messageWrapper.setStatus(Status.SUCCESS);
+    return messageWrapper;
+  }
+
 }

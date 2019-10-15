@@ -1,10 +1,9 @@
-com/morfeus/channels/config/SpringConfig.class
+com/morfeus/channels/model/preference/model/ListTemplate.class
+com/morfeus/channels/ActiveChannelsSpringApplication.class
+com/morfeus/channels/rest/ActiveChannelsWorkflowService.class
 com/morfeus/channels/model/preference/Preference.class
-com/morfeus/channels/rest/NtucHrWorkFlowService.class
-com/morfeus/channels/NtucSpringApplication.class
 com/morfeus/channels/model/preference/model/CarouselMessage.class
 com/morfeus/channels/model/preference/model/CarousalTemplate.class
 com/morfeus/channels/model/preference/model/TextMessage.class
 com/morfeus/channels/model/preference/model/Button.class
-com/morfeus/channels/model/preference/model/ListTemplate.class
 com/morfeus/channels/model/preference/Prefered.class
