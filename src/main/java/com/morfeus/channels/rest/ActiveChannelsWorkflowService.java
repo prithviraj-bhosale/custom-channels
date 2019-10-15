@@ -407,7 +407,7 @@ public class ActiveChannelsWorkflowService {
       image = "https://news.manikarthik.com/wp-content/uploads/Axis-Bank-Platinum-Credit-Card.png";
     } else if (selectedCard != null && selectedCard.equalsIgnoreCase("0001")) {
       image = "https://cards.jetprivilege.com/cards/HDFC-Jet-Privilege-World-DI-Card_final-24-10-17-011519069130907.jpg";
-    } else {
+    }  else if (selectedCard != null && selectedCard.equalsIgnoreCase("5678")){
       image = "https://image3.mouthshut.com/images/imagesp/925006383s.png";
     }
     Content content = new Content();
