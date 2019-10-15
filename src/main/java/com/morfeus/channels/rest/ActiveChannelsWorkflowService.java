@@ -382,11 +382,11 @@ public class ActiveChannelsWorkflowService {
       selectedCard = workflowParameters.get("bank_type_bank_type_Step_1");
       System.out.println("PKS: Card identified");
     }
-    if (requestParams.containsKey("bank_name_bank_name_Step_2")) {
+    if (workflowParameters.containsKey("bank_name_bank_name_Step_2")) {
       cardBlockage = workflowParameters.get("bank_name_bank_name_Step_2");
       System.out.println("PKS: Card Blockage identified");
     }
-    if (requestParams.containsKey("destination_destination_Step_4")) {
+    if (workflowParameters.containsKey("destination_destination_Step_4")) {
       confirmation = workflowParameters.get("destination_destination_Step_4");
       System.out.println("PKS: Action identified");
     }
