@@ -393,8 +393,8 @@ public class ActiveChannelsWorkflowService {
     String base = "Your Request for " + selectedCard + " Block card has been";
     String actualTitle = "";
     if (confirmation != null && confirmation.equalsIgnoreCase("confirm")) {
-      base = "Your " + selectedCard + " card has been";
-      actualTitle = base + cardBlockage+" blocked successfully.";
+      base = "Your " + selectedCard + " card has been ";
+      actualTitle = base + cardBlockage+"ly blocked.";
     } else {
       base = "Your Request for " + selectedCard + " Block card has been";
       actualTitle = base + " cancelled.";
