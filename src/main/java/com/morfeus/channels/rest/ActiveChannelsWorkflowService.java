@@ -409,19 +409,29 @@ public class ActiveChannelsWorkflowService {
       image = "https://cards.jetprivilege.com/cards/HDFC-Jet-Privilege-World-DI-Card_final-24-10-17-011519069130907.jpg";
     }  else if (selectedCard != null && selectedCard.equalsIgnoreCase("5678")){
       image = "https://image3.mouthshut.com/images/imagesp/925006383s.png";
+    }if (request.getRequest().getText()!=null && request.getRequest().getText().equalsIgnoreCase("999999")){
+      Content content = new Content();
+      content.setTitle(actualTitle);
+      content.setImage(image);
+      List<Content> contents = new ArrayList<>();
+      contents.add(content);
+      CarouselMessage carouselMessage = new CarouselMessage();
+      carouselMessage.setContent(contents);
+      carouselMessage.setType("carousel");
+      MorfeusWebhookResponse messageWrapper = new MorfeusWebhookResponse();
+      messageWrapper.setMessages(Arrays.asList(carouselMessage));
+      messageWrapper.setStatus(Status.SUCCESS);
+      return messageWrapper;
+    }else {
+      TextMessage textMessage = new TextMessage();
+      textMessage.setContent("Wrong OTP detected"+ " Please Reinitiate the Flow to Continue");
+      textMessage.setType("text");
+      MorfeusWebhookResponse messageWrapper = new MorfeusWebhookResponse();
+      messageWrapper.setStatus(Status.SUCCESS);
+      messageWrapper.setMessages(Arrays.asList(textMessage));
+      return messageWrapper;
     }
-    Content content = new Content();
-    content.setTitle(actualTitle);
-    content.setImage(image);
-    List<Content> contents = new ArrayList<>();
-    contents.add(content);
-    CarouselMessage carouselMessage = new CarouselMessage();
-    carouselMessage.setContent(contents);
-    carouselMessage.setType("carousel");
-    MorfeusWebhookResponse messageWrapper = new MorfeusWebhookResponse();
-    messageWrapper.setMessages(Arrays.asList(carouselMessage));
-    messageWrapper.setStatus(Status.SUCCESS);
-    return messageWrapper;
+
   }
 
 }
