@@ -440,7 +440,10 @@ public class ActiveChannelsWorkflowService {
       GoogleHomeResponseItem item1 = new GoogleHomeResponseItem();
       GoogleHomeResponseBasicCard basicCard = new GoogleHomeResponseBasicCard();
       List<GoogleHomeResponseItem> itemList = new ArrayList<>();
-
+      GoogleHomeResponseSimpleResponse simpleResponse = new GoogleHomeResponseSimpleResponse();
+      GoogleHomeResponseItem item = new GoogleHomeResponseItem();
+      GoogleHomeResponse googleHomeResponse = new GoogleHomeResponse();
+      item.setSimpleResponse(simpleResponse);
       GoogleHomeRequest request = mapper.readValue(body, GoogleHomeRequest.class);
       if (request.getOriginalDetectIntentRequest().getPayload() != null
           && request.getOriginalDetectIntentRequest().getPayload().getInputs() != null
@@ -464,16 +467,13 @@ public class ActiveChannelsWorkflowService {
           image.setAccessibilityText("Your card is successfully blocked");
           basicCard.setImage(image);
           item1.setBasicCard(basicCard);
+          basicCard.setImageDisplayOptions("CROPPED");
           itemList.add(item1);
         } else if (key.contentEquals("Cancel")) {
           response = "The request has been cancelled, how else can I help you?";
         }
       }
-      GoogleHomeResponseSimpleResponse simpleResponse = new GoogleHomeResponseSimpleResponse();
       simpleResponse.setTextToSpeech(response);
-      GoogleHomeResponseItem item = new GoogleHomeResponseItem();
-      GoogleHomeResponse googleHomeResponse = new GoogleHomeResponse();
-      item.setSimpleResponse(simpleResponse);
       itemList.add(item);
       GoogleHomeResponseGoogleRichResponse googleHomeResponseGoogleRichResponse = new GoogleHomeResponseGoogleRichResponse();
       googleHomeResponseGoogleRichResponse.setItems(itemList);
