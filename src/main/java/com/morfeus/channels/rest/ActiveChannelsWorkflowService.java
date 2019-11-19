@@ -6,6 +6,7 @@ import ai.active.fulfillment.webhook.data.request.NlpV1;
 import ai.active.fulfillment.webhook.data.request.WorkflowParams;
 import ai.active.fulfillment.webhook.data.response.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.morfeus.channels.model.preference.ghome.model.GoogleHomeResponse;
 import com.morfeus.channels.model.preference.model.CarouselMessage;
 import com.morfeus.channels.model.preference.model.TextMessage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,17 +25,13 @@ import java.util.concurrent.TimeUnit;
 
 @RestController
 public class ActiveChannelsWorkflowService {
-    String username = null;
-    @Autowired
-    private ObjectMapper objectMapper;
-    @Autowired
-    private RestTemplate restTemplate;
+  String username = null;
+  @Autowired private ObjectMapper objectMapper;
+  @Autowired private RestTemplate restTemplate;
 
-  @Autowired
-  private ResourceLoader resourceLoader;
+  @Autowired private ResourceLoader resourceLoader;
 
-  @Autowired
-  private RedisTemplate<String, String> redisTemplate;
+  @Autowired private RedisTemplate<String, String> redisTemplate;
 
   // Changes by Pritesh
   // final Active Channels changes
@@ -78,11 +75,11 @@ public class ActiveChannelsWorkflowService {
     System.out.println(customerId + "confirmation");
     String confirmation = null;
     NlpV1 nlpV1 = (NlpV1) request.getNlp();
-    if (nlpV1.getData().get("payloadData")!=null){
-       confirmation = nlpV1.getData().get("payloadData").get("data").get("bank-name.bank-name").asText();
-    }else if (nlpV1.getData().get("maskedMessage")!=null){
-      confirmation =nlpV1.getData().get("maskedMessage").asText();
-    }else{
+    if (nlpV1.getData().get("payloadData") != null) {
+      confirmation = nlpV1.getData().get("payloadData").get("data").get("bank-name.bank-name").asText();
+    } else if (nlpV1.getData().get("maskedMessage") != null) {
+      confirmation = nlpV1.getData().get("maskedMessage").asText();
+    } else {
       confirmation = request.getRequest().getText();
     }
     CarouselMessage carouselMessage = new CarouselMessage();
@@ -176,11 +173,11 @@ public class ActiveChannelsWorkflowService {
 
     NlpV1 nlpV1 = (NlpV1) request.getNlp();
     String selectedCard = null;
-    if (nlpV1.getData().get("payloadData")!=null){
-    selectedCard = nlpV1.getData().get("payloadData").get("data").get("source.source").asText();
-    }else if(nlpV1.getData().get("maskedMessage")!=null){
-      selectedCard= nlpV1.getData().get("maskedMessage").asText();
-    }else{
+    if (nlpV1.getData().get("payloadData") != null) {
+      selectedCard = nlpV1.getData().get("payloadData").get("data").get("source.source").asText();
+    } else if (nlpV1.getData().get("maskedMessage") != null) {
+      selectedCard = nlpV1.getData().get("maskedMessage").asText();
+    } else {
       selectedCard = request.getRequest().getText();
     }
     redisTemplate.opsForValue().set(customerId, selectedCard, 5, TimeUnit.MINUTES);
@@ -394,22 +391,23 @@ public class ActiveChannelsWorkflowService {
     String actualTitle = "";
     if (confirmation != null && confirmation.equalsIgnoreCase("confirm")) {
       base = "Your " + selectedCard + " card has been ";
-      actualTitle = base + cardBlockage+"ly blocked.";
+      actualTitle = base + cardBlockage + "ly blocked.";
     } else {
       base = "Your Request for " + selectedCard + " Block card has been";
       actualTitle = base + " cancelled.";
     }
     String image = "";
     if (selectedCard != null && selectedCard.equalsIgnoreCase("7308")) {
-      image = "https://images.aerlingus.com/resrc-origin/s=w340,pd2.6/o=80/https://www.aerlingus.com/media/images/content/aerclub/aer-credit-card-image1.png";
-    }
-    else if (selectedCard != null && selectedCard.equalsIgnoreCase("0000")) {
+      image =
+          "https://images.aerlingus.com/resrc-origin/s=w340,pd2.6/o=80/https://www.aerlingus.com/media/images/content/aerclub/aer-credit-card-image1.png";
+    } else if (selectedCard != null && selectedCard.equalsIgnoreCase("0000")) {
       image = "https://news.manikarthik.com/wp-content/uploads/Axis-Bank-Platinum-Credit-Card.png";
     } else if (selectedCard != null && selectedCard.equalsIgnoreCase("0001")) {
       image = "https://cards.jetprivilege.com/cards/HDFC-Jet-Privilege-World-DI-Card_final-24-10-17-011519069130907.jpg";
-    }  else if (selectedCard != null && selectedCard.equalsIgnoreCase("5678")){
+    } else if (selectedCard != null && selectedCard.equalsIgnoreCase("5678")) {
       image = "https://image3.mouthshut.com/images/imagesp/925006383s.png";
-    }if (request.getRequest().getText()!=null && request.getRequest().getText().equalsIgnoreCase("999999")){
+    }
+    if (request.getRequest().getText() != null && request.getRequest().getText().equalsIgnoreCase("999999")) {
       Content content = new Content();
       content.setTitle(actualTitle);
       content.setImage(image);
@@ -422,16 +420,20 @@ public class ActiveChannelsWorkflowService {
       messageWrapper.setMessages(Arrays.asList(carouselMessage));
       messageWrapper.setStatus(Status.SUCCESS);
       return messageWrapper;
-    }else {
+    } else {
       TextMessage textMessage = new TextMessage();
-      textMessage.setContent("Wrong OTP detected"+ " Please Reinitiate the Flow to Continue");
+      textMessage.setContent("Wrong OTP detected" + " Please Reinitiate the Flow to Continue");
       textMessage.setType("text");
       MorfeusWebhookResponse messageWrapper = new MorfeusWebhookResponse();
       messageWrapper.setStatus(Status.SUCCESS);
       messageWrapper.setMessages(Arrays.asList(textMessage));
       return messageWrapper;
     }
-
   }
 
+  @PostMapping(path = "/blockcard/ghome/confirmation3", consumes = "application/json", produces = "application/json")
+  public GoogleHomeResponse ghomeConfirmation (@RequestBody(required = true) String body) throws Exception {
+
+    return null;
+  }
 }

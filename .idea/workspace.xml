@@ -1,18 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0388224f-e4de-435c-9d2c-94740bf04b41" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/NtucSpringBootApplication.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/morfeus/ntuc/rest/NtucHrWorkFlowService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/morfeus/ntuc/rest/NtucHrWorkFlowService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/NtucSpringBootApplication-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/NtucSpringBootApplication-0.0.1-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/NtucSpringBootApplication-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/NtucSpringBootApplication-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/morfeus/ntuc/rest/NtucHrWorkFlowService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/morfeus/ntuc/rest/NtucHrWorkFlowService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+    <list default="true" id="f4088bcf-ebcd-45ba-bc88-ed707a7120f1" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeOriginalRequestDataInput.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeOriginalRequestDataInputRaw.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeOriginalRequestDataSurface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeOriginalRequestDataSurfaceCapability.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeRequestArgument.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeRequestConversation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeRequestDataAvailableSurface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeRequestDiagnosticInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeRequestIntent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeRequestOriginalDetectIntentRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeRequestOutputContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeRequestParameters.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeRequestPayload.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeRequestQueryResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeRequestUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeResponseBasicCard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeResponseButton.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeResponseCarouselSelect.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeResponseDataGoogle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeResponseDataGoogleSystemIntent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeResponseGoogleRichResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeResponseGoogleRichResponseSuggestions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeResponseImage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeResponseItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeResponseListSelect.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeResponseListSelectItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeResponseListSelectItemOptionInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeResponseOpenUrlAction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeResponsePayload.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeResponseSimpleResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeResponseSystemIntentData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/morfeus/channels/rest/ActiveChannelsWorkflowService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/morfeus/channels/rest/ActiveChannelsWorkflowService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ActiveChannels-0.0.1-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ActiveChannels-0.0.1-SNAPSHOT.jar.original" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/morfeus/channels/ActiveChannelsSpringApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/morfeus/channels/model/preference/Prefered.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/morfeus/channels/model/preference/Preference.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/morfeus/channels/model/preference/model/Button.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/morfeus/channels/model/preference/model/CarousalTemplate.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/morfeus/channels/model/preference/model/CarouselMessage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/morfeus/channels/model/preference/model/ListTemplate.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/morfeus/channels/model/preference/model/TextMessage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/morfeus/channels/rest/ActiveChannelsWorkflowService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/Tests.class" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
+    <ignored path="$PROJECT_DIR$/../channels-demo-master/target/" />
+    <ignored path="$USER_HOME$/channels-demo/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,24 +68,93 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="NtucSpringApplication.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/ntuc/NtucSpringApplication.java">
+    <leaf>
+      <file leaf-file-name="GoogleHomeResponseListSelect.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeResponseListSelect.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+            <state relative-caret-position="123">
+              <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NtucHrWorkFlowService.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/ntuc/rest/NtucHrWorkFlowService.java">
+      <file leaf-file-name="GoogleHomeResponseListSelectItem.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeResponseListSelectItem.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
-              <caret line="246" column="53" selection-start-line="246" selection-start-column="42" selection-end-line="246" selection-end-column="53" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="15">
+              <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GoogleHomeResponseListSelectItemOptionInfo.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeResponseListSelectItemOptionInfo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GoogleHomeResponseOpenUrlAction.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeResponseOpenUrlAction.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GoogleHomeResponseSimpleResponse.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeResponseSimpleResponse.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GoogleHomeResponseSystemIntentData.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeResponseSystemIntentData.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="28" column="3" lean-forward="true" selection-start-line="28" selection-start-column="3" selection-end-line="28" selection-end-column="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GoogleHomeOriginalRequestDataInput.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeOriginalRequestDataInput.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GoogleHomeOriginalRequestDataInputRaw.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeOriginalRequestDataInputRaw.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GoogleHomeOriginalRequestDataSurface.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeOriginalRequestDataSurface.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GoogleHomeOriginalRequestDataSurfaceCapability.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeOriginalRequestDataSurfaceCapability.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -51,23 +167,47 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/morfeus/ntuc/rest/NtucHrWorkFlowService.java" />
+        <option value="$PROJECT_DIR$/../channels-demo-master/src/main/java/com/morfeus/channels/rest/ActiveChannelsWorkflowService.java" />
+        <option value="$PROJECT_DIR$/../channels-demo-master/src/main/java/com/morfeus/channels/ActiveChannelsSpringApplication.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/morfeus/channels/rest/ActiveChannelsWorkflowService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeResponseItem.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeResponseButton.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeResponseDataGoogle.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeResponseGoogleRichResponse.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeResponseGoogleRichResponseSuggestions.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeResponseImage.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeResponseOpenUrlAction.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeResponseSimpleResponse.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeOriginalRequestDataInput.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeOriginalRequestDataInputRaw.java" />
       </list>
     </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
     <option name="width" value="1440" />
     <option name="height" value="900" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="AndroidView" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -99,7 +239,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ntuc" type="462c0819:PsiDirectoryNode" />
+              <item name="channels" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="NtucSpringBootApplication" type="b2602c69:ProjectViewProjectNode" />
@@ -107,15 +247,18 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ntuc" type="462c0819:PsiDirectoryNode" />
-              <item name="rest" type="462c0819:PsiDirectoryNode" />
+              <item name="channels" type="462c0819:PsiDirectoryNode" />
+              <item name="preference" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="NtucSpringBootApplication" type="b2602c69:ProjectViewProjectNode" />
               <item name="custom-channels" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="channels" type="462c0819:PsiDirectoryNode" />
+              <item name="preference" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -126,6 +269,11 @@
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -139,10 +287,32 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.NtucSpringApplication">
+    <configuration name="ActiveChannelsSpringApplication (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.morfeus.channels.ActiveChannelsSpringApplication" />
+      <module name="ActiveChannels (1)" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.morfeus.channels.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+    </configuration>
+    <configuration name="ActiveChannelsSpringApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.morfeus.channels.ActiveChannelsSpringApplication" />
+      <module name="ActiveChannels" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.morfeus.channels.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+    </configuration>
     <configuration name="NtucSpringApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.morfeus.ntuc.NtucSpringApplication" />
-      <module name="NtucSpringBootApplication" />
+      <module name="ActiveChannels" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
@@ -170,6 +340,16 @@
       </option>
       <patterns />
     </configuration>
+    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
+      <module name="ActiveChannels" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -192,9 +372,16 @@
       <properties />
       <listeners />
     </configuration>
+    <list>
+      <item itemvalue="Application.ActiveChannelsSpringApplication" />
+      <item itemvalue="Application.ActiveChannelsSpringApplication (1)" />
+      <item itemvalue="Application.NtucSpringApplication" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.NtucSpringApplication" />
+        <item itemvalue="Application.ActiveChannelsSpringApplication (1)" />
+        <item itemvalue="Application.ActiveChannelsSpringApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -203,11 +390,11 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="0388224f-e4de-435c-9d2c-94740bf04b41" name="Default" comment="" />
-      <created>1570094404228</created>
+      <changelist id="f4088bcf-ebcd-45ba-bc88-ed707a7120f1" name="Default" comment="" />
+      <created>1571132848370</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1570094404228</updated>
+      <updated>1571132848370</updated>
     </task>
     <servers />
   </component>
@@ -216,25 +403,25 @@
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.32917705" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.4638404" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50143063" side_tool="true" weight="0.32917705" />
+      <window_info anchor="right" id="Maven Projects" order="3" weight="0.3297568" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49928468" weight="0.53990024" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32917705" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4985694" visible="true" weight="0.32917705" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2532189" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27825466" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.24964234" />
       <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.6321696" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Messages" order="7" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -244,105 +431,211 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/morfeus/ntuc/rest/NtucHrWorkFlowService.java</url>
-          <line>242</line>
-          <properties />
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="10" />
-    </breakpoint-manager>
-  </component>
-  <component name="debuggerHistoryManager">
-    <expressions id="evaluateExpression">
-      <expression>
-        <expression-string>nlpV1.getData().get(&quot;maskedMessage&quot;)</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>nlpV1.getData().get(&quot;payloadData&quot;)</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>nlpV1.getData()</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-    </expressions>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/ntuc/NtucSpringApplication.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/channels/rest/ActiveChannelsWorkflowService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2400">
+          <caret line="179" column="53" selection-start-line="179" selection-start-column="53" selection-end-line="179" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/channels/rest/ActiveChannelsWorkflowService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2340">
+          <caret line="175" selection-start-line="175" selection-end-line="175" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/channels/ActiveChannelsSpringApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/src.zip!/java/lang/String.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1650">
+          <caret line="110" column="19" selection-start-line="110" selection-start-column="19" selection-end-line="110" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/channels/rest/ActiveChannelsWorkflowService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5670">
+          <caret line="397" column="73" lean-forward="true" selection-start-line="397" selection-start-column="73" selection-end-line="397" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/channels/ActiveChannelsSpringApplication.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
-          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.1.4.RELEASE/spring-web-5.1.4.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1215">
-          <caret line="101" selection-start-line="101" selection-end-line="101" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/ntuc/rest/NtucHrWorkFlowService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4740">
-          <caret line="341" lean-forward="true" selection-start-line="341" selection-end-line="341" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.1.4.RELEASE/spring-web-5.1.4.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="58" selection-start-line="58" selection-end-line="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.1.4.RELEASE/spring-webmvc-5.1.4.RELEASE.jar!/org/springframework/web/servlet/mvc/method/annotation/ServletInvocableHandlerMethod.class">
+    <entry file="jar://$PROJECT_DIR$/../channels-demo-master/webhook-sdk.jar!/ai/active/fulfillment/webhook/data/response/MorfeusWebhookResponse.class" />
+    <entry file="file://$PROJECT_DIR$/../channels-demo-master/src/main/java/com/morfeus/channels/rest/ActiveChannelsWorkflowService.java" />
+    <entry file="jar://$PROJECT_DIR$/../channels-demo-master/webhook-sdk.jar!/ai/active/fulfillment/webhook/data/response/Content.class" />
+    <entry file="file://$PROJECT_DIR$/../channels-demo-master/src/main/java/com/morfeus/channels/model/preference/model/TextMessage.java" />
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/src.zip!/java/lang/String.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
-          <caret line="48" column="138" selection-start-line="48" selection-start-column="138" selection-end-line="48" selection-end-column="138" />
+          <caret line="110" column="19" selection-start-line="110" selection-start-column="19" selection-end-line="110" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+    <entry file="file://$PROJECT_DIR$/../channels-demo-master/src/main/java/com/morfeus/channels/ActiveChannelsSpringApplication.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/ntuc/NtucSpringApplication.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/channels/rest/ActiveChannelsWorkflowService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="404" column="5" lean-forward="true" selection-start-line="404" selection-start-column="5" selection-end-line="404" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeRequestPayload.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeRequestUser.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeRequestOutputContext.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeRequestQueryResult.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeResponseButton.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/ntuc/NtucSpringApplication.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeResponseCarouselSelect.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+        <state relative-caret-position="150">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/ntuc/rest/NtucHrWorkFlowService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeResponseDataGoogle.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="246" column="53" selection-start-line="246" selection-start-column="42" selection-end-line="246" selection-end-column="53" />
+        <state relative-caret-position="75">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeResponseDataGoogleSystemIntent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeResponseGoogleRichResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeResponseGoogleRichResponseSuggestions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeResponseImage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeResponseItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeResponseListSelect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="123">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeResponseListSelectItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeResponseListSelectItemOptionInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeResponseOpenUrlAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeResponseSimpleResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeResponseSystemIntentData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="28" column="3" lean-forward="true" selection-start-line="28" selection-start-column="3" selection-end-line="28" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeOriginalRequestDataInput.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeOriginalRequestDataInputRaw.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeOriginalRequestDataSurface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeOriginalRequestDataSurfaceCapability.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
         </state>
       </provider>
     </entry>

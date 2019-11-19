@@ -6,10 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="ActiveChannels" />
         <module name="NtucSpringBootApplication" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="ActiveChannels" target="1.8" />
       <module name="NtucSpringBootApplication" target="1.8" />
     </bytecodeTargetLevel>
   </component>
