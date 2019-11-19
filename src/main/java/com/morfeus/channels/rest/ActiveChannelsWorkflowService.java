@@ -434,8 +434,10 @@ public class ActiveChannelsWorkflowService {
 
     @PostMapping(path = "/blockcard/ghome/confirmation3", consumes = "application/json", produces = "application/json")
   public GoogleHomeResponse ghomeConfirmation (@RequestBody(required = true) String body) throws Exception {
-      String response = "Hey there";
+      String response = "how are you";
         StringBuilder responseSentence = new StringBuilder();
+        ObjectMapper mapper = new ObjectMapper();
+        GoogleHomeRequest request = mapper.readValue(body,GoogleHomeRequest.class);
       GoogleHomeResponseSimpleResponse simpleResponse = new GoogleHomeResponseSimpleResponse();
       simpleResponse.setTextToSpeech(response);
       GoogleHomeResponseItem item = new GoogleHomeResponseItem();
