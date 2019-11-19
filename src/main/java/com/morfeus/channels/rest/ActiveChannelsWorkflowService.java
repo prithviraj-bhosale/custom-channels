@@ -600,13 +600,12 @@ public class ActiveChannelsWorkflowService {
 
     google.setRichResponse(richResponse);
     google.setExpectUserResponse(true);
-    google.setSystemIntent(systemIntent);
+  //  google.setSystemIntent(systemIntent);
 
     data.setGoogle(google);
     googleHomeResponse.setPayload(data);
 
     return googleHomeResponse;
-
 
 
 
