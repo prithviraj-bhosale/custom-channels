@@ -472,7 +472,7 @@ public class ActiveChannelsWorkflowService {
           response = "The request has been cancelled, how else can I help you?";
         } else if (key.contentEquals("Deposits") || key.contentEquals("Accounts") || key.contentEquals("Loans") || key
             .contentEquals("Credit Cards")) {
-          createResponseforBalnaceEnquiry(request);
+         return createResponseforBalnaceEnquiry(request);
         }
       }
       simpleResponse.setTextToSpeech(response);
