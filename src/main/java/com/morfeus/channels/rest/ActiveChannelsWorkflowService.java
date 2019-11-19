@@ -433,9 +433,9 @@ public class ActiveChannelsWorkflowService {
   }
 
     @PostMapping(path = "/blockcard/ghome/confirmation3", consumes = "application/json", produces = "application/json")
-  public GoogleHomeResponse ghomeConfirmation (@RequestBody(required = true) String body) throws Exception {
+    public GoogleHomeResponse ghomeConfirmation(@RequestBody(required = true) String body) throws Exception {
       String response = null;
-        StringBuilder responseSentence = new StringBuilder();
+      StringBuilder responseSentence = new StringBuilder();
         ObjectMapper mapper = new ObjectMapper();
       GoogleHomeResponseItem item1 = new GoogleHomeResponseItem();
       GoogleHomeResponseBasicCard basicCard = new GoogleHomeResponseBasicCard();
@@ -470,6 +470,9 @@ public class ActiveChannelsWorkflowService {
           basicCard.setImageDisplayOptions("CROPPED");
         } else if (key.contentEquals("Cancel")) {
           response = "The request has been cancelled, how else can I help you?";
+        } else if (key.contentEquals("Deposits") || key.contentEquals("Accounts") || key.contentEquals("Loans") || key
+            .contentEquals("Credit Cards")) {
+          createResponseforBalnaceEnquiry(request);
         }
       }
       simpleResponse.setTextToSpeech(response);
@@ -486,5 +489,71 @@ public class ActiveChannelsWorkflowService {
       data.setGoogle(google);
       googleHomeResponse.setPayload(data);
       return googleHomeResponse;
+    }
+    private GoogleHomeResponse createResponseforBalnaceEnquiry(GoogleHomeRequest request){
+      String key = request.getOriginalDetectIntentRequest().getPayload().getInputs().get(0).getArguments().get(0).getTextValue();
+      List<GoogleHomeResponseListSelectItem> items = new ArrayList<>();
+      GoogleHomeResponseSystemIntentData systemIntentData = new GoogleHomeResponseSystemIntentData();
+      GoogleHomeResponseGoogleRichResponse richResponse = new GoogleHomeResponseGoogleRichResponse();
+      GoogleHomeResponseListSelect listSelect = new GoogleHomeResponseListSelect();
+      GoogleHomeResponseDataGoogleSystemIntent systemIntent = new GoogleHomeResponseDataGoogleSystemIntent();
+      GoogleHomeResponseItem richresponseitems = new GoogleHomeResponseItem();
+      List<GoogleHomeResponseItem> itemList = new ArrayList<>();
+      GoogleHomeResponseDataGoogle google = new GoogleHomeResponseDataGoogle();
+      GoogleHomeResponsePayload data = new GoogleHomeResponsePayload();
+      GoogleHomeResponse googleHomeResponse = new GoogleHomeResponse();
+
+      if (key.contentEquals("Deposits")){
+        GoogleHomeResponseGoogleRichResponse googleHomeResponseGoogleRichResponse = new GoogleHomeResponseGoogleRichResponse();
+        GoogleHomeResponseSimpleResponse simpleResponse = new GoogleHomeResponseSimpleResponse();
+        simpleResponse.setTextToSpeech("Here are the balances of your deposits account:");
+        richresponseitems.setSimpleResponse(simpleResponse);
+        itemList.add(richresponseitems);
+        googleHomeResponseGoogleRichResponse.setItems(itemList);
+        GoogleHomeResponseListSelectItem listSelectItem = new GoogleHomeResponseListSelectItem();
+        GoogleHomeResponseListSelectItemOptionInfo optionInfo = new GoogleHomeResponseListSelectItemOptionInfo();
+        listSelectItem.setTitle("Supersaver-234xxxxxxx4569");
+        listSelectItem.setDescription("your deposit amount is $ 534.058");
+        optionInfo.setKey("Supersaver-234xxxxxxx4569");
+        listSelectItem.setOptionInfo(optionInfo);
+        items.add(listSelectItem);
+
+
+        GoogleHomeResponseListSelectItem listSelectItem1 = new GoogleHomeResponseListSelectItem();
+        GoogleHomeResponseListSelectItemOptionInfo optionInfo1 = new GoogleHomeResponseListSelectItemOptionInfo();
+        listSelectItem1.setTitle("Supersaver-234xxxxxxx4568");
+        listSelectItem1.setDescription("your deposit amount is $ 400,068");
+        optionInfo1.setKey("Supersaver-234xxxxxxx4568");
+        listSelectItem1.setOptionInfo(optionInfo1);
+        items.add(listSelectItem1);
+
+        GoogleHomeResponseListSelectItem listSelectItem2 = new GoogleHomeResponseListSelectItem();
+        GoogleHomeResponseListSelectItemOptionInfo optionInfo2 = new GoogleHomeResponseListSelectItemOptionInfo();
+        listSelectItem2.setTitle("Supersaver-234xxxxxxx4567");
+        listSelectItem2.setDescription("your deposit amount is $ 334,567.80");
+        optionInfo2.setKey("Supersaver-234xxxxxxx4567 ");
+        listSelectItem2.setOptionInfo(optionInfo2);
+        items.add(listSelectItem2);
+
+        GoogleHomeResponseListSelectItem listSelectItem3 = new GoogleHomeResponseListSelectItem();
+        GoogleHomeResponseListSelectItemOptionInfo optionInfo3 = new GoogleHomeResponseListSelectItemOptionInfo();
+        listSelectItem3.setTitle("Max Gainer-234xxxxxxx4566");
+        listSelectItem3.setDescription("your deposit amount is $ 250,567");
+        optionInfo3.setKey("Max Gainer-234xxxxxxx4566");
+        listSelectItem3.setOptionInfo(optionInfo2);
+        items.add(listSelectItem3 );
+      }
+      listSelect.addItems(items);
+      systemIntentData.setListSelect(listSelect);
+      systemIntentData.setType("@type\": \"type.googleapis.com/google.actions.v2.OptionValueSpec");
+      systemIntent.setIntent("actions.intent.OPTION");
+      systemIntent.setData(systemIntentData);
+      richResponse.setItems(itemList);
+      google.setExpectUserResponse(true);
+      google.setRichResponse(richResponse);
+      data.setGoogle(google);
+      googleHomeResponse.setPayload(data);
+      return googleHomeResponse;
+
     }
 }
