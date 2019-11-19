@@ -468,13 +468,15 @@ public class ActiveChannelsWorkflowService {
           basicCard.setImage(image);
           item1.setBasicCard(basicCard);
           basicCard.setImageDisplayOptions("CROPPED");
-          itemList.add(item1);
         } else if (key.contentEquals("Cancel")) {
           response = "The request has been cancelled, how else can I help you?";
         }
       }
       simpleResponse.setTextToSpeech(response);
       itemList.add(item);
+      if (item1!=null){
+        itemList.add(item1);
+      }
       GoogleHomeResponseGoogleRichResponse googleHomeResponseGoogleRichResponse = new GoogleHomeResponseGoogleRichResponse();
       googleHomeResponseGoogleRichResponse.setItems(itemList);
       GoogleHomeResponseDataGoogle google = new GoogleHomeResponseDataGoogle();
