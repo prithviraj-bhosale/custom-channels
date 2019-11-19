@@ -434,16 +434,46 @@ public class ActiveChannelsWorkflowService {
 
     @PostMapping(path = "/blockcard/ghome/confirmation3", consumes = "application/json", produces = "application/json")
   public GoogleHomeResponse ghomeConfirmation (@RequestBody(required = true) String body) throws Exception {
-      String response = "how are you";
+      String response = null;
         StringBuilder responseSentence = new StringBuilder();
         ObjectMapper mapper = new ObjectMapper();
-        GoogleHomeRequest request = mapper.readValue(body,GoogleHomeRequest.class);
+      GoogleHomeResponseItem item1 = new GoogleHomeResponseItem();
+      GoogleHomeResponseBasicCard basicCard = new GoogleHomeResponseBasicCard();
+      List<GoogleHomeResponseItem> itemList = new ArrayList<>();
+
+      GoogleHomeRequest request = mapper.readValue(body, GoogleHomeRequest.class);
+      if (request.getOriginalDetectIntentRequest().getPayload() != null
+          && request.getOriginalDetectIntentRequest().getPayload().getInputs() != null
+          && request.getOriginalDetectIntentRequest().getPayload().getInputs().get(0) != null
+          && request.getOriginalDetectIntentRequest().getPayload().getInputs().get(0).getIntent() != null && request
+          .getOriginalDetectIntentRequest().getPayload().getInputs().get(0).getIntent().equalsIgnoreCase("actions.intent.OPTION")
+          && request.getOriginalDetectIntentRequest().getPayload().getInputs().get(0).getRawInputs() != null
+          && request.getOriginalDetectIntentRequest().getPayload().getInputs().get(0).getRawInputs().get(0) != null
+          && request.getOriginalDetectIntentRequest().getPayload().getInputs().get(0).getArguments() != null
+          && request.getOriginalDetectIntentRequest().getPayload().getInputs().get(0).getArguments().get(0).getTextValue() != null
+          && request.getOriginalDetectIntentRequest().getPayload().getInputs().get(0).getArguments().get(0).getTextValue() != null
+          && request.getOriginalDetectIntentRequest().getPayload().getInputs().get(0).getArguments().get(0).getName()
+          .equalsIgnoreCase("OPTION")) {
+        String key = request.getOriginalDetectIntentRequest().getPayload().getInputs().get(0).getArguments().get(0).getTextValue();
+        if (key.contentEquals("Confirm")) {
+          response = "Your card is successfully blocked";
+          basicCard.setTitle("Your card is successfully blocked");
+          basicCard.setSubtitle("Please save the reference id yWBW69DT for future reference.");
+          GoogleHomeResponseImage image = new GoogleHomeResponseImage();
+          image.setUrl("https://ukcareguide.co.uk/media/check-mark-green-tick-mark.png");
+          image.setAccessibilityText("Your card is successfully blocked");
+          basicCard.setImage(image);
+          item1.setBasicCard(basicCard);
+          itemList.add(item1);
+        } else if (key.contentEquals("Cancel")) {
+          response = "The request has been cancelled, how else can I help you?";
+        }
+      }
       GoogleHomeResponseSimpleResponse simpleResponse = new GoogleHomeResponseSimpleResponse();
       simpleResponse.setTextToSpeech(response);
       GoogleHomeResponseItem item = new GoogleHomeResponseItem();
       GoogleHomeResponse googleHomeResponse = new GoogleHomeResponse();
       item.setSimpleResponse(simpleResponse);
-      List<GoogleHomeResponseItem> itemList = new ArrayList<>();
       itemList.add(item);
       GoogleHomeResponseGoogleRichResponse googleHomeResponseGoogleRichResponse = new GoogleHomeResponseGoogleRichResponse();
       googleHomeResponseGoogleRichResponse.setItems(itemList);
@@ -454,5 +484,5 @@ public class ActiveChannelsWorkflowService {
       data.setGoogle(google);
       googleHomeResponse.setPayload(data);
       return googleHomeResponse;
-  }
+    }
 }
