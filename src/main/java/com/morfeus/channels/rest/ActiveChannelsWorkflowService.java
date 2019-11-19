@@ -5,10 +5,12 @@ import ai.active.fulfillment.webhook.data.request.MorfeusWebhookRequest;
 import ai.active.fulfillment.webhook.data.request.NlpV1;
 import ai.active.fulfillment.webhook.data.request.WorkflowParams;
 import ai.active.fulfillment.webhook.data.response.*;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.morfeus.channels.model.preference.ghome.model.*;
 import com.morfeus.channels.model.preference.model.CarouselMessage;
 import com.morfeus.channels.model.preference.model.TextMessage;
+import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -26,6 +28,9 @@ import java.util.concurrent.TimeUnit;
 
 @RestController
 public class ActiveChannelsWorkflowService {
+  private static final String SETINTENT = "actions.intent.OPTION";
+  private static final String SYSTEM_INTENT_DATA_TYPE = "type.googleapis.com/google.actions.v2.OptionValueSpec";
+
   String username = null;
   @Autowired private ObjectMapper objectMapper;
   @Autowired private RestTemplate restTemplate;
@@ -490,6 +495,8 @@ public class ActiveChannelsWorkflowService {
       googleHomeResponse.setPayload(data);
       return googleHomeResponse;
     }
+
+
     private GoogleHomeResponse createResponseforBalnaceEnquiry(GoogleHomeRequest request){
       String key = request.getOriginalDetectIntentRequest().getPayload().getInputs().get(0).getArguments().get(0).getTextValue();
       List<GoogleHomeResponseListSelectItem> items = new ArrayList<>();
@@ -545,8 +552,8 @@ public class ActiveChannelsWorkflowService {
       }
       listSelect.addItems(items);
       systemIntentData.setListSelect(listSelect);
-      systemIntentData.setType("@type\": \"type.googleapis.com/google.actions.v2.OptionValueSpec");
-      systemIntent.setIntent("actions.intent.OPTION");
+      systemIntentData.setType(SYSTEM_INTENT_DATA_TYPE);
+      systemIntent.setIntent(SETINTENT);
       systemIntent.setData(systemIntentData);
       richResponse.setItems(itemList);
       google.setExpectUserResponse(true);

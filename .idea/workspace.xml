@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f4088bcf-ebcd-45ba-bc88-ed707a7120f1" name="Default" comment="" />
+    <list default="true" id="f4088bcf-ebcd-45ba-bc88-ed707a7120f1" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/morfeus/channels/rest/ActiveChannelsWorkflowService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/morfeus/channels/rest/ActiveChannelsWorkflowService.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/../channels-demo-master/target/" />
     <ignored path="$USER_HOME$/channels-demo/target/" />
@@ -38,8 +40,8 @@
       <file leaf-file-name="ActiveChannelsWorkflowService.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/channels/rest/ActiveChannelsWorkflowService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="505" column="41" lean-forward="true" selection-start-line="505" selection-start-column="41" selection-end-line="505" selection-end-column="41" />
+            <state relative-caret-position="189">
+              <caret line="554" column="97" lean-forward="true" selection-start-line="554" selection-start-column="31" selection-end-line="554" selection-end-column="97" />
             </state>
           </provider>
         </entry>
@@ -682,8 +684,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/channels/rest/ActiveChannelsWorkflowService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="505" column="41" lean-forward="true" selection-start-line="505" selection-start-column="41" selection-end-line="505" selection-end-column="41" />
+        <state relative-caret-position="189">
+          <caret line="554" column="97" lean-forward="true" selection-start-line="554" selection-start-column="31" selection-end-line="554" selection-end-column="97" />
         </state>
       </provider>
     </entry>
