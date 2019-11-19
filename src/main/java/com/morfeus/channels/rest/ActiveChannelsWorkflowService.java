@@ -6,12 +6,13 @@ import ai.active.fulfillment.webhook.data.request.NlpV1;
 import ai.active.fulfillment.webhook.data.request.WorkflowParams;
 import ai.active.fulfillment.webhook.data.response.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.morfeus.channels.model.preference.ghome.model.GoogleHomeResponse;
+import com.morfeus.channels.model.preference.ghome.model.*;
 import com.morfeus.channels.model.preference.model.CarouselMessage;
 import com.morfeus.channels.model.preference.model.TextMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -431,9 +432,25 @@ public class ActiveChannelsWorkflowService {
     }
   }
 
-  @PostMapping(path = "/blockcard/ghome/confirmation3", consumes = "application/json", produces = "application/json")
+    @PostMapping(path = "/blockcard/ghome/confirmation3", consumes = "application/json", produces = "application/json")
   public GoogleHomeResponse ghomeConfirmation (@RequestBody(required = true) String body) throws Exception {
-
-    return null;
+      String response = "Hey there";
+        StringBuilder responseSentence = new StringBuilder();
+      GoogleHomeResponseSimpleResponse simpleResponse = new GoogleHomeResponseSimpleResponse();
+      simpleResponse.setTextToSpeech(response);
+      GoogleHomeResponseItem item = new GoogleHomeResponseItem();
+      GoogleHomeResponse googleHomeResponse = new GoogleHomeResponse();
+      item.setSimpleResponse(simpleResponse);
+      List<GoogleHomeResponseItem> itemList = new ArrayList<>();
+      itemList.add(item);
+      GoogleHomeResponseGoogleRichResponse googleHomeResponseGoogleRichResponse = new GoogleHomeResponseGoogleRichResponse();
+      googleHomeResponseGoogleRichResponse.setItems(itemList);
+      GoogleHomeResponseDataGoogle google = new GoogleHomeResponseDataGoogle();
+      google.setExpectUserResponse(true);
+      google.setRichResponse(googleHomeResponseGoogleRichResponse);
+      GoogleHomeResponsePayload data = new GoogleHomeResponsePayload();
+      data.setGoogle(google);
+      googleHomeResponse.setPayload(data);
+      return googleHomeResponse;
   }
 }
