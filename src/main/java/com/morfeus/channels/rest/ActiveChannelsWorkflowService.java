@@ -501,7 +501,7 @@ public class ActiveChannelsWorkflowService {
       String key = request.getOriginalDetectIntentRequest().getPayload().getInputs().get(0).getArguments().get(0).getTextValue();
       List<GoogleHomeResponseListSelectItem> items = new ArrayList<>();
       GoogleHomeResponseSystemIntentData systemIntentData = new GoogleHomeResponseSystemIntentData();
-      GoogleHomeResponseGoogleRichResponse richResponse = new GoogleHomeResponseGoogleRichResponse();
+      GoogleHomeResponseGoogleRichResponse googleHomeResponseGoogleRichResponse = new GoogleHomeResponseGoogleRichResponse();
       GoogleHomeResponseListSelect listSelect = new GoogleHomeResponseListSelect();
       GoogleHomeResponseDataGoogleSystemIntent systemIntent = new GoogleHomeResponseDataGoogleSystemIntent();
       GoogleHomeResponseItem richresponseitems = new GoogleHomeResponseItem();
@@ -511,7 +511,6 @@ public class ActiveChannelsWorkflowService {
       GoogleHomeResponse googleHomeResponse = new GoogleHomeResponse();
 
       if (key.contentEquals("Deposits")){
-        GoogleHomeResponseGoogleRichResponse googleHomeResponseGoogleRichResponse = new GoogleHomeResponseGoogleRichResponse();
         GoogleHomeResponseSimpleResponse simpleResponse = new GoogleHomeResponseSimpleResponse();
         simpleResponse.setTextToSpeech("Here are the balances of your deposits account:");
         richresponseitems.setSimpleResponse(simpleResponse);
@@ -555,9 +554,9 @@ public class ActiveChannelsWorkflowService {
       systemIntentData.setType(SYSTEM_INTENT_DATA_TYPE);
       systemIntent.setIntent(SETINTENT);
       systemIntent.setData(systemIntentData);
-      richResponse.setItems(itemList);
+      googleHomeResponseGoogleRichResponse.setItems(itemList);
       google.setExpectUserResponse(true);
-      google.setRichResponse(richResponse);
+      google.setRichResponse(googleHomeResponseGoogleRichResponse);
       data.setGoogle(google);
       googleHomeResponse.setPayload(data);
       return googleHomeResponse;
