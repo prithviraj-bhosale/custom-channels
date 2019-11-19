@@ -477,7 +477,7 @@ public class ActiveChannelsWorkflowService {
           response = "The request has been cancelled, how else can I help you?";
         } else if (key.contentEquals("Deposits") || key.contentEquals("Accounts") || key.contentEquals("Loans") || key
             .contentEquals("Credit Cards")) {
-         return createResponseforBalnaceEnquiry(request);
+         return createResponseforBalanceEnquiry(request);
         }
       }
       simpleResponse.setTextToSpeech(response);
@@ -562,4 +562,54 @@ public class ActiveChannelsWorkflowService {
       return googleHomeResponse;
 
     }
+
+
+  private GoogleHomeResponse createResponseforBalanceEnquiry(GoogleHomeRequest request){
+    String key = request.getOriginalDetectIntentRequest().getPayload().getInputs().get(0).getArguments().get(0).getTextValue();
+    List<GoogleHomeResponseListSelectItem> items = new ArrayList<>();
+    GoogleHomeResponseSystemIntentData systemIntentData = new GoogleHomeResponseSystemIntentData();
+    GoogleHomeResponseGoogleRichResponse googleHomeResponseGoogleRichResponse = new GoogleHomeResponseGoogleRichResponse();
+    GoogleHomeResponseListSelect listSelect = new GoogleHomeResponseListSelect();
+    GoogleHomeResponseDataGoogleSystemIntent systemIntent = new GoogleHomeResponseDataGoogleSystemIntent();
+    GoogleHomeResponseItem richresponseitems = new GoogleHomeResponseItem();
+    List<GoogleHomeResponseItem> itemList = new ArrayList<>();
+    GoogleHomeResponseDataGoogle google = new GoogleHomeResponseDataGoogle();
+    GoogleHomeResponsePayload data = new GoogleHomeResponsePayload();
+    GoogleHomeResponse googleHomeResponse = new GoogleHomeResponse();
+
+    GoogleHomeResponseListSelectItem listSelectItem = new GoogleHomeResponseListSelectItem();
+    listSelectItem.setTitle("title");
+    listSelectItem.setDescription("desc");
+    GoogleHomeResponseListSelectItemOptionInfo optionInfo = new GoogleHomeResponseListSelectItemOptionInfo();
+    optionInfo.setKey("title");
+    items.add(listSelectItem);
+
+    listSelect.addItems(items);
+    systemIntentData.setType(SYSTEM_INTENT_DATA_TYPE);
+    systemIntentData.setListSelect(listSelect);
+    systemIntent.setData(systemIntentData);
+    systemIntent.setIntent(SETINTENT);
+
+    GoogleHomeResponseSimpleResponse simpleResponse = new GoogleHomeResponseSimpleResponse();
+    simpleResponse.setTextToSpeech("texttiospeech");
+    GoogleHomeResponseItem item =new GoogleHomeResponseItem();
+    item.setSimpleResponse(simpleResponse);
+    itemList.add(item);
+    GoogleHomeResponseGoogleRichResponse richResponse = new GoogleHomeResponseGoogleRichResponse();
+    richResponse.setItems(itemList);
+
+    google.setRichResponse(richResponse);
+    google.setExpectUserResponse(true);
+    google.setSystemIntent(systemIntent);
+
+    data.setGoogle(google);
+    googleHomeResponse.setPayload(data);
+
+    return googleHomeResponse;
+
+
+
+
+
+  }
 }
