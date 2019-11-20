@@ -512,7 +512,7 @@ public class ActiveChannelsWorkflowService {
 
       if (key.contentEquals("Deposits")){
         GoogleHomeResponseSimpleResponse simpleResponse = new GoogleHomeResponseSimpleResponse();
-        simpleResponse.setTextToSpeech("Here are the balances of your deposits account:");
+        simpleResponse.setTextToSpeech("Here are the balances of your deposits");
         richresponseitems.setSimpleResponse(simpleResponse);
         itemList.add(richresponseitems);
         googleHomeResponseGoogleRichResponse.setItems(itemList);
@@ -548,6 +548,44 @@ public class ActiveChannelsWorkflowService {
         optionInfo3.setKey("Max Gainer-234xxxxxxx4566");
         listSelectItem3.setOptionInfo(optionInfo2);
         items.add(listSelectItem3 );
+      }else if(key.contentEquals("Accounts")){
+        GoogleHomeResponseSimpleResponse simpleResponse = new GoogleHomeResponseSimpleResponse();
+        simpleResponse.setTextToSpeech("Here are the balances of your accounts");
+        richresponseitems.setSimpleResponse(simpleResponse);
+        itemList.add(richresponseitems);
+        googleHomeResponseGoogleRichResponse.setItems(itemList);
+        GoogleHomeResponseListSelectItem listSelectItem = new GoogleHomeResponseListSelectItem();
+        GoogleHomeResponseListSelectItemOptionInfo optionInfo = new GoogleHomeResponseListSelectItemOptionInfo();
+        listSelectItem.setTitle("Easy Access 789xxxxxxxx2016");
+        listSelectItem.setDescription("your balance is $ 57,578.20");
+        optionInfo.setKey("Easy Access 789xxxxxxxx2016");
+        listSelectItem.setOptionInfo(optionInfo);
+        items.add(listSelectItem);
+
+
+        GoogleHomeResponseListSelectItem listSelectItem1 = new GoogleHomeResponseListSelectItem();
+        GoogleHomeResponseListSelectItemOptionInfo optionInfo1 = new GoogleHomeResponseListSelectItemOptionInfo();
+        listSelectItem1.setTitle("SavingsMax- 987xxxxxxxx1012");
+        listSelectItem1.setDescription("your balance is $ 23,456.20");
+        optionInfo1.setKey("SavingsMax- 987xxxxxxxx1012");
+        listSelectItem1.setOptionInfo(optionInfo1);
+        items.add(listSelectItem1);
+
+        GoogleHomeResponseListSelectItem listSelectItem2 = new GoogleHomeResponseListSelectItem();
+        GoogleHomeResponseListSelectItemOptionInfo optionInfo2 = new GoogleHomeResponseListSelectItemOptionInfo();
+        listSelectItem2.setTitle("Traditional IRA- 100xxxxxxxx2021");
+        listSelectItem2.setDescription("your balance is $ 22,000.00");
+        optionInfo2.setKey("Traditional IRA- 100xxxxxxxx2021");
+        listSelectItem2.setOptionInfo(optionInfo2);
+        items.add(listSelectItem2);
+
+        GoogleHomeResponseListSelectItem listSelectItem3 = new GoogleHomeResponseListSelectItem();
+        GoogleHomeResponseListSelectItemOptionInfo optionInfo3 = new GoogleHomeResponseListSelectItemOptionInfo();
+        listSelectItem3.setTitle("Premium- 789xxxxxxx2018");
+        listSelectItem3.setDescription("your balance is $ 17,878.00");
+        optionInfo3.setKey("Premium- 789xxxxxxx2018");
+        listSelectItem3.setOptionInfo(optionInfo2);
+        items.add(listSelectItem3 );
       }
       listSelect.setItems(items);
       systemIntentData.setListSelect(listSelect);
@@ -561,7 +599,6 @@ public class ActiveChannelsWorkflowService {
       data.setGoogle(google);
       googleHomeResponse.setPayload(data);
       return googleHomeResponse;
-
     }
 
 }

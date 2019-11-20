@@ -37,8 +37,8 @@
       <file leaf-file-name="ActiveChannelsWorkflowService.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/channels/rest/ActiveChannelsWorkflowService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="134">
-              <caret line="479" selection-start-line="479" selection-end-line="479" />
+            <state relative-caret-position="482">
+              <caret line="576" column="64" selection-start-line="576" selection-start-column="64" selection-end-line="576" selection-end-column="64" />
             </state>
           </provider>
         </entry>
@@ -415,7 +415,7 @@
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.24964234" />
       <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.4985694" visible="true" weight="0.3990025" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4985694" weight="0.3990025" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -436,12 +436,6 @@
           <line>442</line>
           <properties />
           <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/morfeus/channels/rest/ActiveChannelsWorkflowService.java</url>
-          <line>568</line>
-          <properties />
-          <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/morfeus/channels/rest/ActiveChannelsWorkflowService.java</url>
@@ -815,8 +809,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/channels/rest/ActiveChannelsWorkflowService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="479" selection-start-line="479" selection-end-line="479" />
+        <state relative-caret-position="482">
+          <caret line="576" column="64" selection-start-line="576" selection-start-column="64" selection-end-line="576" selection-end-column="64" />
         </state>
       </provider>
     </entry>
