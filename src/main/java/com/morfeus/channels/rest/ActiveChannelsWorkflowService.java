@@ -586,6 +586,82 @@ public class ActiveChannelsWorkflowService {
         optionInfo3.setKey("Premium- 789xxxxxxx2018");
         listSelectItem3.setOptionInfo(optionInfo2);
         items.add(listSelectItem3 );
+      }else if(key.contentEquals("Credit Cards")){
+        GoogleHomeResponseSimpleResponse simpleResponse = new GoogleHomeResponseSimpleResponse();
+        simpleResponse.setTextToSpeech("Here are the balances for your cards");
+        richresponseitems.setSimpleResponse(simpleResponse);
+        itemList.add(richresponseitems);
+        googleHomeResponseGoogleRichResponse.setItems(itemList);
+        GoogleHomeResponseListSelectItem listSelectItem = new GoogleHomeResponseListSelectItem();
+        GoogleHomeResponseListSelectItemOptionInfo optionInfo = new GoogleHomeResponseListSelectItemOptionInfo();
+        listSelectItem.setTitle("Titanium- 6987xxxxxxxx4575");
+        listSelectItem.setDescription("your total outstanding amount is $25000.00 and due date for the same is 08-06-2019");
+        optionInfo.setKey("Titanium- 6987xxxxxxxx4575");
+        listSelectItem.setOptionInfo(optionInfo);
+        items.add(listSelectItem);
+
+
+        GoogleHomeResponseListSelectItem listSelectItem1 = new GoogleHomeResponseListSelectItem();
+        GoogleHomeResponseListSelectItemOptionInfo optionInfo1 = new GoogleHomeResponseListSelectItemOptionInfo();
+        listSelectItem1.setTitle("Platinum Edge- 5187xxxxxxxx4571");
+        listSelectItem1.setDescription("your total outstanding amount is $2130.00 and due date for the same is 07-15-2019");
+        optionInfo1.setKey("Platinum Edge- 5187xxxxxxxx4571");
+        listSelectItem1.setOptionInfo(optionInfo1);
+        items.add(listSelectItem1);
+
+        GoogleHomeResponseListSelectItem listSelectItem2 = new GoogleHomeResponseListSelectItem();
+        GoogleHomeResponseListSelectItemOptionInfo optionInfo2 = new GoogleHomeResponseListSelectItemOptionInfo();
+        listSelectItem2.setTitle("Platinum Edge- 5187xxxxxxxx4572");
+        listSelectItem2.setDescription("your total outstanding amount is $2130.00 and due date for the same is 07-15-2019");
+        optionInfo2.setKey("Platinum Edge- 5187xxxxxxxx4572");
+        listSelectItem2.setOptionInfo(optionInfo2);
+        items.add(listSelectItem2);
+
+        GoogleHomeResponseListSelectItem listSelectItem3 = new GoogleHomeResponseListSelectItem();
+        GoogleHomeResponseListSelectItemOptionInfo optionInfo3 = new GoogleHomeResponseListSelectItemOptionInfo();
+        listSelectItem3.setTitle("Platinum Edge- 5187xxxxxxxx4573");
+        listSelectItem3.setDescription("your total outstanding amount is $2130.00 and due date for the same is 07-15-2019");
+        optionInfo3.setKey("Platinum Edge- 5187xxxxxxxx4573");
+        listSelectItem3.setOptionInfo(optionInfo2);
+        items.add(listSelectItem3 );
+      }else if(key.contentEquals("Loans")){
+        GoogleHomeResponseSimpleResponse simpleResponse = new GoogleHomeResponseSimpleResponse();
+        simpleResponse.setTextToSpeech("Here are the outstanding balances");
+        richresponseitems.setSimpleResponse(simpleResponse);
+        itemList.add(richresponseitems);
+        googleHomeResponseGoogleRichResponse.setItems(itemList);
+        GoogleHomeResponseListSelectItem listSelectItem = new GoogleHomeResponseListSelectItem();
+        GoogleHomeResponseListSelectItemOptionInfo optionInfo = new GoogleHomeResponseListSelectItemOptionInfo();
+        listSelectItem.setTitle("Getmoney - 321xxxxxxxx4571");
+        listSelectItem.setDescription("your outstanding loan/Mortgage amount is $ 451,343.53");
+        optionInfo.setKey("Getmoney - 321xxxxxxxx4571");
+        listSelectItem.setOptionInfo(optionInfo);
+        items.add(listSelectItem);
+
+
+        GoogleHomeResponseListSelectItem listSelectItem1 = new GoogleHomeResponseListSelectItem();
+        GoogleHomeResponseListSelectItemOptionInfo optionInfo1 = new GoogleHomeResponseListSelectItemOptionInfo();
+        listSelectItem1.setTitle("Pay easy - 321xxxxxxxx4569");
+        listSelectItem1.setDescription("your total outstanding amount is $345,678.00");
+        optionInfo1.setKey("Pay easy - 321xxxxxxxx4569");
+        listSelectItem1.setOptionInfo(optionInfo1);
+        items.add(listSelectItem1);
+
+        GoogleHomeResponseListSelectItem listSelectItem2 = new GoogleHomeResponseListSelectItem();
+        GoogleHomeResponseListSelectItemOptionInfo optionInfo2 = new GoogleHomeResponseListSelectItemOptionInfo();
+        listSelectItem2.setTitle("HomeSaver - 321xxxxxxxx4570");
+        listSelectItem2.setDescription("your total outstanding amount is $340,089.00");
+        optionInfo2.setKey("HomeSaver - 321xxxxxxxx4570");
+        listSelectItem2.setOptionInfo(optionInfo2);
+        items.add(listSelectItem2);
+
+      GoogleHomeResponseListSelectItem listSelectItem3 = new GoogleHomeResponseListSelectItem();
+        GoogleHomeResponseListSelectItemOptionInfo optionInfo3 = new GoogleHomeResponseListSelectItemOptionInfo();
+        listSelectItem3.setTitle("HELOC - 321xxxxxxxx4568");
+        listSelectItem3.setDescription("your total outstanding amount is $234,578.20");
+        optionInfo3.setKey("HELOC - 321xxxxxxxx4568");
+        listSelectItem3.setOptionInfo(optionInfo2);
+        items.add(listSelectItem3 );
       }
       listSelect.setItems(items);
       systemIntentData.setListSelect(listSelect);
