@@ -662,6 +662,8 @@ public class ActiveChannelsWorkflowService {
         optionInfo3.setKey("HELOC - 321xxxxxxxx4568");
         listSelectItem3.setOptionInfo(optionInfo2);
         items.add(listSelectItem3 );
+      }else{
+        return latestTrasncation(request);
       }
       listSelect.setItems(items);
       systemIntentData.setListSelect(listSelect);
@@ -677,4 +679,40 @@ public class ActiveChannelsWorkflowService {
       return googleHomeResponse;
     }
 
+    private GoogleHomeResponse latestTrasncation(GoogleHomeRequest request){
+      String key = request.getOriginalDetectIntentRequest().getPayload().getInputs().get(0).getArguments().get(0).getTextValue();
+      String response;
+      ObjectMapper mapper = new ObjectMapper();
+      GoogleHomeResponseItem item1 = new GoogleHomeResponseItem();
+      GoogleHomeResponseBasicCard basicCard = new GoogleHomeResponseBasicCard();
+      List<GoogleHomeResponseItem> itemList = new ArrayList<>();
+      GoogleHomeResponseSimpleResponse simpleResponse = new GoogleHomeResponseSimpleResponse();
+      GoogleHomeResponseItem item = new GoogleHomeResponseItem();
+      GoogleHomeResponse googleHomeResponse = new GoogleHomeResponse();
+      item.setSimpleResponse(simpleResponse);
+      response = "Here are the details of the "+ key;
+      basicCard.setTitle(key);
+      basicCard.setSubtitle("Opening Date : 03-23-2019" + "Branch Name : Edison Avenue" + "Branch Address : Marceline, USA");
+      GoogleHomeResponseImage image = new GoogleHomeResponseImage();
+      image.setUrl("https://ukcareguide.co.uk/media/check-mark-green-tick-mark.png");
+      image.setAccessibilityText(key);
+      basicCard.setImage(image);
+      item1.setBasicCard(basicCard);
+      basicCard.setImageDisplayOptions("CROPPED");
+      simpleResponse.setTextToSpeech(response);
+      itemList.add(item);
+      if (item1!=null){
+        itemList.add(item1);
+      }
+      GoogleHomeResponseGoogleRichResponse googleHomeResponseGoogleRichResponse = new GoogleHomeResponseGoogleRichResponse();
+      googleHomeResponseGoogleRichResponse.setItems(itemList);
+      GoogleHomeResponseDataGoogle google = new GoogleHomeResponseDataGoogle();
+      google.setExpectUserResponse(true);
+      google.setRichResponse(googleHomeResponseGoogleRichResponse);
+      GoogleHomeResponsePayload data = new GoogleHomeResponsePayload();
+      data.setGoogle(google);
+      googleHomeResponse.setPayload(data);
+      return googleHomeResponse;
+
+    }
 }

@@ -37,8 +37,8 @@
       <file leaf-file-name="ActiveChannelsWorkflowService.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/channels/rest/ActiveChannelsWorkflowService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="659" column="40" selection-start-line="659" selection-start-column="40" selection-end-line="659" selection-end-column="40" />
+            <state relative-caret-position="419">
+              <caret line="700" column="6" lean-forward="true" selection-start-line="700" selection-start-column="6" selection-end-line="700" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -809,8 +809,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/channels/rest/ActiveChannelsWorkflowService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="659" column="40" selection-start-line="659" selection-start-column="40" selection-end-line="659" selection-end-column="40" />
+        <state relative-caret-position="419">
+          <caret line="700" column="6" lean-forward="true" selection-start-line="700" selection-start-column="6" selection-end-line="700" selection-end-column="6" />
         </state>
       </provider>
     </entry>
