@@ -37,10 +37,15 @@
       <file leaf-file-name="ActiveChannelsWorkflowService.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/channels/rest/ActiveChannelsWorkflowService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="419">
-              <caret line="700" column="6" lean-forward="true" selection-start-line="700" selection-start-column="6" selection-end-line="700" selection-end-column="6" />
+            <state relative-caret-position="387">
+              <caret line="602" lean-forward="true" selection-start-line="602" selection-end-line="602" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mostPrefred.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mostPrefred.json">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file leaf-file-name="GoogleHomeResponseDataGoogle.java" pinned="false" current-in-tab="false">
@@ -77,15 +82,6 @@
       </file>
       <file leaf-file-name="GoogleHomeResponseSystemIntentData.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeResponseSystemIntentData.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GoogleHomeResponseDataGoogleSystemIntent.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeResponseDataGoogleSystemIntent.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="150">
               <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
@@ -408,21 +404,21 @@
       <window_info anchor="right" id="Maven Projects" order="3" weight="0.3297568" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49928468" weight="0.53990024" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.4985694" visible="true" weight="0.32917705" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4985694" weight="0.32917705" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27825466" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.24964234" />
       <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4985694" weight="0.3990025" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.4985694" visible="true" weight="0.13591023" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -756,13 +752,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/channels/ActiveChannelsSpringApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -807,10 +796,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mostPrefred.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/channels/ActiveChannelsSpringApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/channels/rest/ActiveChannelsWorkflowService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="700" column="6" lean-forward="true" selection-start-line="700" selection-start-column="6" selection-end-line="700" selection-end-column="6" />
+        <state relative-caret-position="387">
+          <caret line="602" lean-forward="true" selection-start-line="602" selection-end-line="602" />
         </state>
       </provider>
     </entry>

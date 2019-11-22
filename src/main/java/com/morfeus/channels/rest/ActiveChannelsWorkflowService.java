@@ -586,7 +586,7 @@ public class ActiveChannelsWorkflowService {
         optionInfo3.setKey("Premium- 789xxxxxxx2018");
         listSelectItem3.setOptionInfo(optionInfo2);
         items.add(listSelectItem3 );
-      }else if(key.contentEquals("Credit Cards")){
+      }else if(key.contentEquals("Credit Cards") ||key.contentEquals("1234")){
         GoogleHomeResponseSimpleResponse simpleResponse = new GoogleHomeResponseSimpleResponse();
         simpleResponse.setTextToSpeech("Here are the balances for your cards");
         richresponseitems.setSimpleResponse(simpleResponse);
@@ -690,7 +690,7 @@ public class ActiveChannelsWorkflowService {
       GoogleHomeResponseItem item = new GoogleHomeResponseItem();
       GoogleHomeResponse googleHomeResponse = new GoogleHomeResponse();
       item.setSimpleResponse(simpleResponse);
-      response = "Here are the details of the "+ key;
+      response = "Here are the details of the " + key;
       basicCard.setTitle(key);
       basicCard.setSubtitle("Opening Date : 03-23-2019" + "Branch Name : Edison Avenue" + "Branch Address : Marceline, USA");
       GoogleHomeResponseImage image = new GoogleHomeResponseImage();
@@ -701,7 +701,7 @@ public class ActiveChannelsWorkflowService {
       basicCard.setImageDisplayOptions("CROPPED");
       simpleResponse.setTextToSpeech(response);
       itemList.add(item);
-      if (item1!=null){
+      if (item1 != null) {
         itemList.add(item1);
       }
       GoogleHomeResponseGoogleRichResponse googleHomeResponseGoogleRichResponse = new GoogleHomeResponseGoogleRichResponse();
