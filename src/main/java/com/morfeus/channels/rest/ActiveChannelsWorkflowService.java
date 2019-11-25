@@ -482,6 +482,21 @@ public class ActiveChannelsWorkflowService {
       }else{
         if (request.getQueryResult()!=null && request.getQueryResult().getOutputContexts()!=null){
             List<GoogleHomeRequestOutputContext> outputContexlist = request.getQueryResult().getOutputContexts();
+            for(GoogleHomeRequestOutputContext outputContext : outputContexlist){
+              String account_type =outputContext.getParameters().get("banking_product_account_type").toString();
+              if (account_type.equalsIgnoreCase("deposits") || account_type.equalsIgnoreCase("Deposi") ||
+                  account_type.equalsIgnoreCase("deposit")){
+                return DepositsAccountBalance(request);
+              }else if (account_type.equalsIgnoreCase("credit")|| account_type.equalsIgnoreCase("credit card")||
+              account_type.equalsIgnoreCase("credits")){
+                return CreditAccountBalance(request);
+              }else if(account_type.equalsIgnoreCase("loans") || account_type.equalsIgnoreCase("loan account") ||
+              account_type.equalsIgnoreCase("loan")){
+                return LoanAccountBalance(request);
+              }else {
+                return DefaultResponse(request);
+              }
+            }
         }
       }
       simpleResponse.setTextToSpeech(response);
@@ -500,8 +515,61 @@ public class ActiveChannelsWorkflowService {
       return googleHomeResponse;
     }
 
+  private GoogleHomeResponse DefaultResponse(GoogleHomeRequest request) {
+    List<GoogleHomeResponseListSelectItem> items = new ArrayList<>();
+    GoogleHomeResponseSystemIntentData systemIntentData = new GoogleHomeResponseSystemIntentData();
+    GoogleHomeResponseGoogleRichResponse googleHomeResponseGoogleRichResponse = new GoogleHomeResponseGoogleRichResponse();
+    GoogleHomeResponseListSelect listSelect = new GoogleHomeResponseListSelect();
+    GoogleHomeResponseDataGoogleSystemIntent systemIntent = new GoogleHomeResponseDataGoogleSystemIntent();
+    GoogleHomeResponseItem richresponseitems = new GoogleHomeResponseItem();
+    List<GoogleHomeResponseItem> itemList = new ArrayList<>();
+    GoogleHomeResponseDataGoogle google = new GoogleHomeResponseDataGoogle();
+    GoogleHomeResponsePayload data = new GoogleHomeResponsePayload();
 
-    private GoogleHomeResponse createResponseforBalnaceEnquiry(GoogleHomeRequest request){
+    GoogleHomeResponse googleHomeResponse = new GoogleHomeResponse();
+    GoogleHomeResponseSimpleResponse simpleResponse = new GoogleHomeResponseSimpleResponse();
+    simpleResponse.setTextToSpeech("Sorry we cannot find any Account. You can try with");
+    richresponseitems.setSimpleResponse(simpleResponse);
+    itemList.add(richresponseitems);
+    googleHomeResponseGoogleRichResponse.setItems(itemList);
+    GoogleHomeResponseListSelectItem listSelectItem = new GoogleHomeResponseListSelectItem();
+    GoogleHomeResponseListSelectItemOptionInfo optionInfo = new GoogleHomeResponseListSelectItemOptionInfo();
+    listSelectItem.setTitle("show my loan balance");
+    optionInfo.setKey("show my loan balance");
+    listSelectItem.setOptionInfo(optionInfo);
+    items.add(listSelectItem);
+
+    GoogleHomeResponseListSelectItem listSelectItem1 = new GoogleHomeResponseListSelectItem();
+    GoogleHomeResponseListSelectItemOptionInfo optionInfo1 = new GoogleHomeResponseListSelectItemOptionInfo();
+    listSelectItem1.setTitle("show my deposits balance");
+    optionInfo1.setKey("show my deposits balance");
+    listSelectItem1.setOptionInfo(optionInfo1);
+    items.add(listSelectItem1);
+
+    GoogleHomeResponseListSelectItem listSelectItem2 = new GoogleHomeResponseListSelectItem();
+    GoogleHomeResponseListSelectItemOptionInfo optionInfo2 = new GoogleHomeResponseListSelectItemOptionInfo();
+    listSelectItem2.setTitle("show my credit card balances");
+    optionInfo2.setKey("show my credit card balances");
+    listSelectItem2.setOptionInfo(optionInfo2);
+    items.add(listSelectItem2);
+
+    listSelect.setItems(items);
+    systemIntentData.setListSelect(listSelect);
+    systemIntentData.setType(SYSTEM_INTENT_DATA_TYPE);
+    systemIntent.setIntent(SETINTENT);
+    systemIntent.setData(systemIntentData);
+    googleHomeResponseGoogleRichResponse.setItems(itemList);
+    google.setExpectUserResponse(true);
+    google.setRichResponse(googleHomeResponseGoogleRichResponse);
+    google.setSystemIntent(systemIntent);
+    data.setGoogle(google);
+    googleHomeResponse.setPayload(data);
+    return googleHomeResponse;
+
+  }
+
+
+  private GoogleHomeResponse createResponseforBalnaceEnquiry(GoogleHomeRequest request){
       String key = request.getOriginalDetectIntentRequest().getPayload().getInputs().get(0).getArguments().get(0).getTextValue();
       List<GoogleHomeResponseListSelectItem> items = new ArrayList<>();
       GoogleHomeResponseSystemIntentData systemIntentData = new GoogleHomeResponseSystemIntentData();
@@ -630,7 +698,7 @@ public class ActiveChannelsWorkflowService {
         items.add(listSelectItem3 );
       }else if(key.contentEquals("Loans")){
         GoogleHomeResponseSimpleResponse simpleResponse = new GoogleHomeResponseSimpleResponse();
-        simpleResponse.setTextToSpeech("Here are the outstanding balances");
+        simpleResponse.setTextToSpeech("Here are the outstanding balances of your loan ");
         richresponseitems.setSimpleResponse(simpleResponse);
         itemList.add(richresponseitems);
         googleHomeResponseGoogleRichResponse.setItems(itemList);
@@ -719,4 +787,198 @@ public class ActiveChannelsWorkflowService {
       return googleHomeResponse;
 
     }
+
+    private GoogleHomeResponse DepositsAccountBalance(GoogleHomeRequest request){
+      List<GoogleHomeResponseListSelectItem> items = new ArrayList<>();
+      GoogleHomeResponseSystemIntentData systemIntentData = new GoogleHomeResponseSystemIntentData();
+      GoogleHomeResponseGoogleRichResponse googleHomeResponseGoogleRichResponse = new GoogleHomeResponseGoogleRichResponse();
+      GoogleHomeResponseListSelect listSelect = new GoogleHomeResponseListSelect();
+      GoogleHomeResponseDataGoogleSystemIntent systemIntent = new GoogleHomeResponseDataGoogleSystemIntent();
+      GoogleHomeResponseItem richresponseitems = new GoogleHomeResponseItem();
+      List<GoogleHomeResponseItem> itemList = new ArrayList<>();
+      GoogleHomeResponseDataGoogle google = new GoogleHomeResponseDataGoogle();
+      GoogleHomeResponsePayload data = new GoogleHomeResponsePayload();
+      GoogleHomeResponse googleHomeResponse = new GoogleHomeResponse();
+      GoogleHomeResponseSimpleResponse simpleResponse = new GoogleHomeResponseSimpleResponse();
+      simpleResponse.setTextToSpeech("Here are the balances of your deposits");
+      richresponseitems.setSimpleResponse(simpleResponse);
+      itemList.add(richresponseitems);
+      googleHomeResponseGoogleRichResponse.setItems(itemList);
+      GoogleHomeResponseListSelectItem listSelectItem = new GoogleHomeResponseListSelectItem();
+      GoogleHomeResponseListSelectItemOptionInfo optionInfo = new GoogleHomeResponseListSelectItemOptionInfo();
+      listSelectItem.setTitle("Supersaver-234xxxxxxx4569");
+      listSelectItem.setDescription("your deposit amount is $ 534.058");
+      optionInfo.setKey("Supersaver-234xxxxxxx4569");
+      listSelectItem.setOptionInfo(optionInfo);
+      items.add(listSelectItem);
+
+
+      GoogleHomeResponseListSelectItem listSelectItem1 = new GoogleHomeResponseListSelectItem();
+      GoogleHomeResponseListSelectItemOptionInfo optionInfo1 = new GoogleHomeResponseListSelectItemOptionInfo();
+      listSelectItem1.setTitle("Supersaver-234xxxxxxx4568");
+      listSelectItem1.setDescription("your deposit amount is $ 400,068");
+      optionInfo1.setKey("Supersaver-234xxxxxxx4568");
+      listSelectItem1.setOptionInfo(optionInfo1);
+      items.add(listSelectItem1);
+
+      GoogleHomeResponseListSelectItem listSelectItem2 = new GoogleHomeResponseListSelectItem();
+      GoogleHomeResponseListSelectItemOptionInfo optionInfo2 = new GoogleHomeResponseListSelectItemOptionInfo();
+      listSelectItem2.setTitle("Supersaver-234xxxxxxx4567");
+      listSelectItem2.setDescription("your deposit amount is $ 334,567.80");
+      optionInfo2.setKey("Supersaver-234xxxxxxx4567 ");
+      listSelectItem2.setOptionInfo(optionInfo2);
+      items.add(listSelectItem2);
+
+      GoogleHomeResponseListSelectItem listSelectItem3 = new GoogleHomeResponseListSelectItem();
+      GoogleHomeResponseListSelectItemOptionInfo optionInfo3 = new GoogleHomeResponseListSelectItemOptionInfo();
+      listSelectItem3.setTitle("Max Gainer-234xxxxxxx4566");
+      listSelectItem3.setDescription("your deposit amount is $ 250,567");
+      optionInfo3.setKey("Max Gainer-234xxxxxxx4566");
+      listSelectItem3.setOptionInfo(optionInfo2);
+      items.add(listSelectItem3 );
+      listSelect.setItems(items);
+      systemIntentData.setListSelect(listSelect);
+      systemIntentData.setType(SYSTEM_INTENT_DATA_TYPE);
+      systemIntent.setIntent(SETINTENT);
+      systemIntent.setData(systemIntentData);
+      googleHomeResponseGoogleRichResponse.setItems(itemList);
+      google.setExpectUserResponse(true);
+      google.setRichResponse(googleHomeResponseGoogleRichResponse);
+      google.setSystemIntent(systemIntent);
+      data.setGoogle(google);
+      googleHomeResponse.setPayload(data);
+      return googleHomeResponse;
+    }
+
+  private GoogleHomeResponse CreditAccountBalance(GoogleHomeRequest request){
+    List<GoogleHomeResponseListSelectItem> items = new ArrayList<>();
+    GoogleHomeResponseSystemIntentData systemIntentData = new GoogleHomeResponseSystemIntentData();
+    GoogleHomeResponseGoogleRichResponse googleHomeResponseGoogleRichResponse = new GoogleHomeResponseGoogleRichResponse();
+    GoogleHomeResponseListSelect listSelect = new GoogleHomeResponseListSelect();
+    GoogleHomeResponseDataGoogleSystemIntent systemIntent = new GoogleHomeResponseDataGoogleSystemIntent();
+    GoogleHomeResponseItem richresponseitems = new GoogleHomeResponseItem();
+    List<GoogleHomeResponseItem> itemList = new ArrayList<>();
+    GoogleHomeResponseDataGoogle google = new GoogleHomeResponseDataGoogle();
+    GoogleHomeResponsePayload data = new GoogleHomeResponsePayload();
+
+    GoogleHomeResponse googleHomeResponse = new GoogleHomeResponse();
+    GoogleHomeResponseSimpleResponse simpleResponse = new GoogleHomeResponseSimpleResponse();
+    simpleResponse.setTextToSpeech("Here are the balances for your cards");
+    richresponseitems.setSimpleResponse(simpleResponse);
+    itemList.add(richresponseitems);
+    googleHomeResponseGoogleRichResponse.setItems(itemList);
+    GoogleHomeResponseListSelectItem listSelectItem = new GoogleHomeResponseListSelectItem();
+    GoogleHomeResponseListSelectItemOptionInfo optionInfo = new GoogleHomeResponseListSelectItemOptionInfo();
+    listSelectItem.setTitle("Titanium- 6987xxxxxxxx4575");
+    listSelectItem.setDescription("your total outstanding amount is $25000.00 and due date for the same is 08-06-2019");
+    optionInfo.setKey("Titanium- 6987xxxxxxxx4575");
+    listSelectItem.setOptionInfo(optionInfo);
+    items.add(listSelectItem);
+
+
+    GoogleHomeResponseListSelectItem listSelectItem1 = new GoogleHomeResponseListSelectItem();
+    GoogleHomeResponseListSelectItemOptionInfo optionInfo1 = new GoogleHomeResponseListSelectItemOptionInfo();
+    listSelectItem1.setTitle("Platinum Edge- 5187xxxxxxxx4571");
+    listSelectItem1.setDescription("your total outstanding amount is $2130.00 and due date for the same is 07-15-2019");
+    optionInfo1.setKey("Platinum Edge- 5187xxxxxxxx4571");
+    listSelectItem1.setOptionInfo(optionInfo1);
+    items.add(listSelectItem1);
+
+    GoogleHomeResponseListSelectItem listSelectItem2 = new GoogleHomeResponseListSelectItem();
+    GoogleHomeResponseListSelectItemOptionInfo optionInfo2 = new GoogleHomeResponseListSelectItemOptionInfo();
+    listSelectItem2.setTitle("Platinum Edge- 5187xxxxxxxx4572");
+    listSelectItem2.setDescription("your total outstanding amount is $2130.00 and due date for the same is 07-15-2019");
+    optionInfo2.setKey("Platinum Edge- 5187xxxxxxxx4572");
+    listSelectItem2.setOptionInfo(optionInfo2);
+    items.add(listSelectItem2);
+
+    GoogleHomeResponseListSelectItem listSelectItem3 = new GoogleHomeResponseListSelectItem();
+    GoogleHomeResponseListSelectItemOptionInfo optionInfo3 = new GoogleHomeResponseListSelectItemOptionInfo();
+    listSelectItem3.setTitle("Platinum Edge- 5187xxxxxxxx4573");
+    listSelectItem3.setDescription("your total outstanding amount is $2130.00 and due date for the same is 07-15-2019");
+    optionInfo3.setKey("Platinum Edge- 5187xxxxxxxx4573");
+    listSelectItem3.setOptionInfo(optionInfo2);
+    items.add(listSelectItem3 );
+
+
+
+    listSelect.setItems(items);
+    systemIntentData.setListSelect(listSelect);
+    systemIntentData.setType(SYSTEM_INTENT_DATA_TYPE);
+    systemIntent.setIntent(SETINTENT);
+    systemIntent.setData(systemIntentData);
+    googleHomeResponseGoogleRichResponse.setItems(itemList);
+    google.setExpectUserResponse(true);
+    google.setRichResponse(googleHomeResponseGoogleRichResponse);
+    google.setSystemIntent(systemIntent);
+    data.setGoogle(google);
+    googleHomeResponse.setPayload(data);
+    return googleHomeResponse;
+  }
+
+  private GoogleHomeResponse LoanAccountBalance(GoogleHomeRequest request){
+    List<GoogleHomeResponseListSelectItem> items = new ArrayList<>();
+    GoogleHomeResponseSystemIntentData systemIntentData = new GoogleHomeResponseSystemIntentData();
+    GoogleHomeResponseGoogleRichResponse googleHomeResponseGoogleRichResponse = new GoogleHomeResponseGoogleRichResponse();
+    GoogleHomeResponseListSelect listSelect = new GoogleHomeResponseListSelect();
+    GoogleHomeResponseDataGoogleSystemIntent systemIntent = new GoogleHomeResponseDataGoogleSystemIntent();
+    GoogleHomeResponseItem richresponseitems = new GoogleHomeResponseItem();
+    List<GoogleHomeResponseItem> itemList = new ArrayList<>();
+    GoogleHomeResponseDataGoogle google = new GoogleHomeResponseDataGoogle();
+    GoogleHomeResponsePayload data = new GoogleHomeResponsePayload();
+
+    GoogleHomeResponse googleHomeResponse = new GoogleHomeResponse();
+    GoogleHomeResponseSimpleResponse simpleResponse = new GoogleHomeResponseSimpleResponse();
+    simpleResponse.setTextToSpeech("Here are the outstanding balances of your loan");
+    richresponseitems.setSimpleResponse(simpleResponse);
+    itemList.add(richresponseitems);
+    googleHomeResponseGoogleRichResponse.setItems(itemList);
+    GoogleHomeResponseListSelectItem listSelectItem = new GoogleHomeResponseListSelectItem();
+    GoogleHomeResponseListSelectItemOptionInfo optionInfo = new GoogleHomeResponseListSelectItemOptionInfo();
+    listSelectItem.setTitle("Getmoney - 321xxxxxxxx4571");
+    listSelectItem.setDescription("your outstanding loan/Mortgage amount is $ 451,343.53");
+    optionInfo.setKey("Getmoney - 321xxxxxxxx4571");
+    listSelectItem.setOptionInfo(optionInfo);
+    items.add(listSelectItem);
+
+
+    GoogleHomeResponseListSelectItem listSelectItem1 = new GoogleHomeResponseListSelectItem();
+    GoogleHomeResponseListSelectItemOptionInfo optionInfo1 = new GoogleHomeResponseListSelectItemOptionInfo();
+    listSelectItem1.setTitle("Pay easy - 321xxxxxxxx4569");
+    listSelectItem1.setDescription("your total outstanding amount is $345,678.00");
+    optionInfo1.setKey("Pay easy - 321xxxxxxxx4569");
+    listSelectItem1.setOptionInfo(optionInfo1);
+    items.add(listSelectItem1);
+
+    GoogleHomeResponseListSelectItem listSelectItem2 = new GoogleHomeResponseListSelectItem();
+    GoogleHomeResponseListSelectItemOptionInfo optionInfo2 = new GoogleHomeResponseListSelectItemOptionInfo();
+    listSelectItem2.setTitle("HomeSaver - 321xxxxxxxx4570");
+    listSelectItem2.setDescription("your total outstanding amount is $340,089.00");
+    optionInfo2.setKey("HomeSaver - 321xxxxxxxx4570");
+    listSelectItem2.setOptionInfo(optionInfo2);
+    items.add(listSelectItem2);
+
+    GoogleHomeResponseListSelectItem listSelectItem3 = new GoogleHomeResponseListSelectItem();
+    GoogleHomeResponseListSelectItemOptionInfo optionInfo3 = new GoogleHomeResponseListSelectItemOptionInfo();
+    listSelectItem3.setTitle("HELOC - 321xxxxxxxx4568");
+    listSelectItem3.setDescription("your total outstanding amount is $234,578.20");
+    optionInfo3.setKey("HELOC - 321xxxxxxxx4568");
+    listSelectItem3.setOptionInfo(optionInfo2);
+    items.add(listSelectItem3 );
+
+
+
+    listSelect.setItems(items);
+    systemIntentData.setListSelect(listSelect);
+    systemIntentData.setType(SYSTEM_INTENT_DATA_TYPE);
+    systemIntent.setIntent(SETINTENT);
+    systemIntent.setData(systemIntentData);
+    googleHomeResponseGoogleRichResponse.setItems(itemList);
+    google.setExpectUserResponse(true);
+    google.setRichResponse(googleHomeResponseGoogleRichResponse);
+    google.setSystemIntent(systemIntent);
+    data.setGoogle(google);
+    googleHomeResponse.setPayload(data);
+    return googleHomeResponse;
+  }
 }

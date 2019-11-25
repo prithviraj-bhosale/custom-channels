@@ -16,6 +16,7 @@ com/morfeus/channels/model/preference/ghome/model/GoogleHomeRequestConversation.
 com/morfeus/channels/model/preference/ghome/model/GoogleHomeResponsePayload.class
 com/morfeus/channels/model/preference/model/ListTemplate.class
 com/morfeus/channels/model/preference/ghome/model/GoogleHomeResponseCarouselSelect.class
+com/morfeus/channels/model/preference/ghome/model/Parameters.class
 com/morfeus/channels/model/preference/ghome/model/GoogleHomeResponseItem.class
 com/morfeus/channels/model/preference/ghome/model/GoogleHomeResponseDataGoogleSystemIntent.class
 com/morfeus/channels/model/preference/ghome/model/GoogleHomeRequestOutputContext.class
@@ -37,7 +38,6 @@ com/morfeus/channels/model/preference/ghome/model/GoogleHomeRequestQueryResult.c
 com/morfeus/channels/model/preference/ghome/model/GoogleHomeResponseBasicCard.class
 com/morfeus/channels/model/preference/ghome/model/GoogleHomeRequestOriginalDetectIntentRequest.class
 com/morfeus/channels/model/preference/ghome/model/GoogleHomeRequestDiagnosticInfo.class
-com/morfeus/channels/model/preference/ghome/model/Paramaters.class
 com/morfeus/channels/model/preference/ghome/model/GoogleHomeRequestDataAvailableSurface.class
 com/morfeus/channels/model/preference/ghome/model/GoogleHomeResponse.class
 com/morfeus/channels/model/preference/Prefered.class

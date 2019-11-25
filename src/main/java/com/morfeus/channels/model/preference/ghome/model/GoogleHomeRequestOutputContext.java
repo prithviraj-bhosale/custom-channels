@@ -23,7 +23,7 @@ public class GoogleHomeRequestOutputContext implements Serializable
   private String name;
 
   @JsonProperty
-  private Map<String,Object> paramaters;
+  private Map<String,Object> parameters;
   private final static long serialVersionUID = 6519966703139740563L;
 
   /**
@@ -50,6 +50,14 @@ public class GoogleHomeRequestOutputContext implements Serializable
   @JsonProperty("name")
   public void setName(String name) {
     this.name = name;
+  }
+
+  public Map<String, Object> getParameters() {
+    return parameters;
+  }
+
+  public void setParameters(Map<String, Object> parameters) {
+    this.parameters = parameters;
   }
 
   @Override
