@@ -1,6 +1,7 @@
 /Users/admin/Desktop/develop/custom-channels/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeResponseButton.java
 /Users/admin/Desktop/develop/custom-channels/src/main/java/com/morfeus/channels/model/preference/model/CarousalTemplate.java
 /Users/admin/Desktop/develop/custom-channels/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeRequestQueryResult.java
+/Users/admin/Desktop/develop/custom-channels/src/main/java/com/morfeus/channels/model/preference/ghome/model/Paramaters.java
 /Users/admin/Desktop/develop/custom-channels/src/main/java/com/morfeus/channels/model/preference/model/ListTemplate.java
 /Users/admin/Desktop/develop/custom-channels/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeResponseDataGoogleSystemIntent.java
 /Users/admin/Desktop/develop/custom-channels/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeRequestPayload.java

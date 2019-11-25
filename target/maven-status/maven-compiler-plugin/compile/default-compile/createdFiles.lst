@@ -37,6 +37,7 @@ com/morfeus/channels/model/preference/ghome/model/GoogleHomeRequestQueryResult.c
 com/morfeus/channels/model/preference/ghome/model/GoogleHomeResponseBasicCard.class
 com/morfeus/channels/model/preference/ghome/model/GoogleHomeRequestOriginalDetectIntentRequest.class
 com/morfeus/channels/model/preference/ghome/model/GoogleHomeRequestDiagnosticInfo.class
+com/morfeus/channels/model/preference/ghome/model/Paramaters.class
 com/morfeus/channels/model/preference/ghome/model/GoogleHomeRequestDataAvailableSurface.class
 com/morfeus/channels/model/preference/ghome/model/GoogleHomeResponse.class
 com/morfeus/channels/model/preference/Prefered.class

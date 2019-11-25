@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
 import java.io.Serializable;
+import java.util.Map;
 
 /**
  * @author Prithviraj Bhosale
@@ -20,6 +21,9 @@ public class GoogleHomeRequestOutputContext implements Serializable
 
   @JsonProperty("name")
   private String name;
+
+  @JsonProperty
+  private Map<String,Object> paramaters;
   private final static long serialVersionUID = 6519966703139740563L;
 
   /**

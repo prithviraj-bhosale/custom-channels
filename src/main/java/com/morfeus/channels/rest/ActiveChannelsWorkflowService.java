@@ -479,6 +479,10 @@ public class ActiveChannelsWorkflowService {
             .contentEquals("Credit Cards")) {
          return createResponseforBalnaceEnquiry(request);
         }
+      }else{
+        if (request.getQueryResult()!=null && request.getQueryResult().getOutputContexts()!=null){
+            List<GoogleHomeRequestOutputContext> outputContexlist = request.getQueryResult().getOutputContexts();
+        }
       }
       simpleResponse.setTextToSpeech(response);
       itemList.add(item);
