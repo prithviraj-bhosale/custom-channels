@@ -488,7 +488,7 @@ public class ActiveChannelsWorkflowService {
                 .equalsIgnoreCase("deposit")) {
               return DepositsAccountBalance(request);
             } else if (account_type.equalsIgnoreCase("credit") || account_type.equalsIgnoreCase("credit card") || account_type
-                .equalsIgnoreCase("credits")) {
+                .equalsIgnoreCase("credits") || account_type.equalsIgnoreCase("credit cards")) {
               return CreditAccountBalance(request);
             } else if (account_type.equalsIgnoreCase("loans") || account_type.equalsIgnoreCase("loan account") || account_type
                 .equalsIgnoreCase("loan")) {
