@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f4088bcf-ebcd-45ba-bc88-ed707a7120f1" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/morfeus/channels/rest/ActiveChannelsWorkflowService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/morfeus/channels/rest/ActiveChannelsWorkflowService.java" afterDir="false" />
-    </list>
+    <list default="true" id="f4088bcf-ebcd-45ba-bc88-ed707a7120f1" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/../channels-demo-master/target/" />
     <ignored path="$USER_HOME$/channels-demo/target/" />
@@ -28,24 +26,12 @@
       <file leaf-file-name="ActiveChannelsWorkflowService.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/channels/rest/ActiveChannelsWorkflowService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="45" column="32" lean-forward="true" selection-start-line="45" selection-start-column="32" selection-end-line="45" selection-end-column="32" />
+            <state relative-caret-position="297">
+              <caret line="302" column="85" lean-forward="true" selection-start-line="302" selection-start-column="85" selection-end-line="302" selection-end-column="85" />
               <folding>
                 <element signature="method#DepositsAccountBalance#0;class#ActiveChannelsWorkflowService#0" />
                 <element signature="method#CreditAccountBalance#0;class#ActiveChannelsWorkflowService#0" />
                 <element signature="method#LoaAccountBalance#0;class#ActiveChannelsWorkflowService#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GoogleHomeResponseItem.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/channels/model/preference/ghome/model/GoogleHomeResponseItem.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -346,7 +332,7 @@
       <window_info anchor="right" id="Maven Projects" order="3" weight="0.3297568" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49928468" weight="0.39027432" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4985694" weight="0.3840399" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.4985694" visible="true" weight="0.29301745" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
       <window_info content_ui="combo" id="Project" order="0" weight="0.22174536" />
@@ -823,8 +809,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/morfeus/channels/rest/ActiveChannelsWorkflowService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="45" column="32" lean-forward="true" selection-start-line="45" selection-start-column="32" selection-end-line="45" selection-end-column="32" />
+        <state relative-caret-position="297">
+          <caret line="302" column="85" lean-forward="true" selection-start-line="302" selection-start-column="85" selection-end-line="302" selection-end-column="85" />
           <folding>
             <element signature="method#DepositsAccountBalance#0;class#ActiveChannelsWorkflowService#0" />
             <element signature="method#CreditAccountBalance#0;class#ActiveChannelsWorkflowService#0" />
