@@ -27,7 +27,7 @@ public class StandAloneApplication {
   @Autowired private RedisTemplate<String, String> redisTemplate;
 
 
-  @PostMapping(path = "/morfeusApp/whatsApp", consumes = "application/json",produces = "application/json")
+  @PostMapping(path = "/morfeus/whatsapp", consumes = "application/json",produces = "application/json")
   public void acceptRequest( @RequestBody(required = true) String body,HttpServletResponse httpServletResponse) throws Exception {
     String url=null;
     Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
