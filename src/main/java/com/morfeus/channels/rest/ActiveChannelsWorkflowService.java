@@ -952,9 +952,6 @@ public class ActiveChannelsWorkflowService {
     optionInfo3.setKey("HELOC - 321xxxxxxxx4568");
     listSelectItem3.setOptionInfo(optionInfo2);
     items.add(listSelectItem3);
-
-
-
     listSelect.setItems(items);
     systemIntentData.setListSelect(listSelect);
     systemIntentData.setType(SYSTEM_INTENT_DATA_TYPE);
