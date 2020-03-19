@@ -973,7 +973,7 @@ public class ActiveChannelsWorkflowService {
   }
   @PostMapping(path = "/morfeus/whatsapp", consumes = "application/json",produces = "application/json")
   public void acceptRequest( @RequestBody(required = true) String body,HttpServletResponse httpServletResponse) throws Exception {
-    String url=null;
+    String url="https://router.triniti.ai/fb-flow/ml9zupdo6k/morfeus/v1/channels/177wn22408692407/message";
     Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
     Request req= objectMapper.readValue(body,Request.class);
     LOGGER.log(Level.INFO, "after request ");
