@@ -40,8 +40,13 @@ public class StandAloneApplication {
     String mobileNumber=req.getTo().getNumber();
     try{
       url=redisTemplate.opsForValue().get(mobileNumber);
-      if(!url.isEmpty())
-        postRequest(body,url);
+      if(!url.isEmpty()) {
+        postRequest(body, url);
+      }else {
+        mobileNumber = "918147953938";
+        url = "https://router.triniti.ai/fb-flow/ml9zupdo6k/morfeus/v1/channels/177wn22408692407/message";
+        postRequest(body , url);
+      }
     }
     catch(Exception e)
     {
@@ -83,11 +88,11 @@ public class StandAloneApplication {
   {
     String[] keyValue=body.split(":");
     Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
-    String mobileNumber = keyValue[0].trim().replaceAll("\\{", "").replaceAll("\"", "");
-    JsonObject jsonResponse = new com.google.gson.JsonParser().parse(body).getAsJsonObject();
+   // String mobileNumber = keyValue[0].trim().replaceAll("\\{", "").replaceAll("\"", "");
+   // JsonObject jsonResponse = new com.google.gson.JsonParser().parse(body).getAsJsonObject();
     String newUrl = "https://router.triniti.ai/fb-flow/ml9zupdo6k/morfeus/v1/channels/177wn22408692407/message";
-    mobileNumber = "918147953938";
-    String url = keyValue[1].trim().replaceAll("\\}", "").replaceAll("\"", "");
+     String mobileNumber = "918147953938";
+    //String url = keyValue[1].trim().replaceAll("\\}", "").replaceAll("\"", "");
     try{
       if(number != null && number.isEmpty()==false) {
         number=number.replaceAll("\"","");
