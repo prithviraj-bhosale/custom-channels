@@ -7,6 +7,8 @@ import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.connection.RedisConnection;
+import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 import requestObject.Request;
@@ -26,6 +28,9 @@ public class StandAloneApplication {
 
 
   @Autowired private RedisTemplate<String, String> redisTemplate;
+
+  @Autowired
+  private RedisConnectionFactory jedisConnectionFactory;
 
 
   @PostMapping(path = "/morfeus/whatsapp", consumes = "application/json",produces = "application/json")
@@ -82,6 +87,7 @@ public class StandAloneApplication {
     String mobileNumber = keyValue[0].trim().replaceAll("\\{", "").replaceAll("\"", "");
     JsonObject jsonResponse = new com.google.gson.JsonParser().parse(body).getAsJsonObject();
     String newUrl = jsonResponse.get(mobileNumber).getAsString();
+    RedisConnection redisConnection = jedisConnectionFactory.getConnection();
     String url = keyValue[1].trim().replaceAll("\\}", "").replaceAll("\"", "");
     try{
       if(number != null && number.isEmpty()==false) {
