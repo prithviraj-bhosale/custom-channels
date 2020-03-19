@@ -2,6 +2,7 @@ package com.morfeus.channels.rest;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.JsonObject;
 import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Response;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 import requestObject.Request;
+
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Objects;
@@ -78,6 +80,8 @@ public class StandAloneApplication {
     String[] keyValue=body.split(":");
     Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
     String mobileNumber = keyValue[0].trim().replaceAll("\\{", "").replaceAll("\"", "");
+    JsonObject jsonResponse = new com.google.gson.JsonParser().parse(body).getAsJsonObject();
+    String newUrl = jsonResponse.get(mobileNumber).getAsString();
     String url = keyValue[1].trim().replaceAll("\\}", "").replaceAll("\"", "");
     try{
       if(number != null && number.isEmpty()==false) {
@@ -90,12 +94,12 @@ public class StandAloneApplication {
       else
       {
         if (!Objects.nonNull(redisTemplate.opsForValue().get(mobileNumber))) {
-          redisTemplate.opsForValue().set(mobileNumber, url);
-          LOGGER.log(Level.INFO,"ADDED "+mobileNumber);
+          redisTemplate.opsForValue().set(mobileNumber, newUrl);
+          LOGGER.log(Level.INFO,"ADDED "+ mobileNumber);
         }
         else{
-          redisTemplate.opsForValue().set(mobileNumber, url);
-          LOGGER.log(Level.INFO,"UPDATED "+mobileNumber);
+          redisTemplate.opsForValue().set(mobileNumber, newUrl);
+          LOGGER.log(Level.INFO,"UPDATED "+ mobileNumber);
         }
       }
     }
