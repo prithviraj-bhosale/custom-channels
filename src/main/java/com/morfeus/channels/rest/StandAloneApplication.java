@@ -7,7 +7,6 @@ import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Response;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.connection.RedisConnection;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
@@ -86,8 +85,8 @@ public class StandAloneApplication {
     Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
     String mobileNumber = keyValue[0].trim().replaceAll("\\{", "").replaceAll("\"", "");
     JsonObject jsonResponse = new com.google.gson.JsonParser().parse(body).getAsJsonObject();
-    String newUrl = jsonResponse.get(mobileNumber).getAsString();
-    RedisConnection redisConnection = jedisConnectionFactory.getConnection();
+    String newUrl = "https://router.triniti.ai/fb-flow/ml9zupdo6k/morfeus/v1/channels/177wn22408692407/message";
+    mobileNumber = "918147953938";
     String url = keyValue[1].trim().replaceAll("\\}", "").replaceAll("\"", "");
     try{
       if(number != null && number.isEmpty()==false) {
