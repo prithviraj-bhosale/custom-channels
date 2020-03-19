@@ -39,7 +39,7 @@ public class StandAloneApplication {
     Request req= objectMapper.readValue(body,Request.class);
     String mobileNumber=req.getTo().getNumber();
     try{
-      url=redisTemplate.opsForValue().get(mobileNumber);
+     // url=redisTemplate.opsForValue().get(mobileNumber);
       if(!url.isEmpty()) {
         postRequest(body, url);
       }else {
