@@ -28,22 +28,26 @@ public class StandAloneApplication {
 
   @Autowired private RedisTemplate<String, String> redisTemplate;
 
-  @Autowired
-  private RedisConnectionFactory jedisConnectionFactory;
+  @Autowired private RedisConnectionFactory jedisConnectionFactory;
 
 
-  @PostMapping(path = "/morfeus/whatsapp", consumes = "application/json",produces = "application/json")
+  /*@PostMapping(path = "/morfeus/whatsapp", consumes = "application/json",produces = "application/json")
   public void acceptRequest( @RequestBody(required = true) String body,HttpServletResponse httpServletResponse) throws Exception {
     String url=null;
     Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
     Request req= objectMapper.readValue(body,Request.class);
-    String mobileNumber=req.getTo().getNumber();
+    LOGGER.log(Level.INFO, "after request ");
+    LOGGER.log(Level.INFO, "after request ");
+   // String mobileNumber=req.getTo().getNumber();
     try{
+      LOGGER.log(Level.INFO, "in try block");
      // url=redisTemplate.opsForValue().get(mobileNumber);
       if(!url.isEmpty()) {
+        LOGGER.log(Level.INFO, "in if block");
         postRequest(body, url);
       }else {
-        mobileNumber = "918147953938";
+        LOGGER.log(Level.INFO, "in else block");
+        //mobileNumber = "918147953938";
         url = "https://router.triniti.ai/fb-flow/ml9zupdo6k/morfeus/v1/channels/177wn22408692407/message";
         postRequest(body , url);
       }
@@ -118,4 +122,5 @@ public class StandAloneApplication {
       LOGGER.log(Level.SEVERE, (Supplier<String>) e);
     }
   }
+}*/
 }
