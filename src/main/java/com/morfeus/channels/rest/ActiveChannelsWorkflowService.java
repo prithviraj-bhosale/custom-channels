@@ -973,23 +973,24 @@ public class ActiveChannelsWorkflowService {
   }
   @PostMapping(path = "/morfeus/whatsapp", consumes = "application/json",produces = "application/json")
   public void acceptRequest( @RequestBody(required = true) String body,HttpServletResponse httpServletResponse) throws Exception {
-    String url="https://router.triniti.ai/fb-flow/ml9zupdo6k/morfeus/v1/channels/177wn22408692407/message";
+    String url = "https://router.triniti.ai/fb-flow/ml9zupdo6k/morfeus/v1/channels/177wn22408692407/message";
     Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
-    Request req= objectMapper.readValue(body,Request.class);
+    Request req = objectMapper.readValue(body, Request.class);
     LOGGER.log(Level.INFO, "after request ");
     LOGGER.log(Level.INFO, "after request ");
-    // String mobileNumber=req.getTo().getNumber();
-    try{
+    try {
       LOGGER.log(Level.INFO, "in try block");
       // url=redisTemplate.opsForValue().get(mobileNumber);
-      if(!url.isEmpty()) {
+      if (!url.isEmpty()) {
         LOGGER.log(Level.INFO, "in if block");
         postRequest(body, url);
-      }else {
+      } else if (req.getFrom().getNumber().equalsIgnoreCase("918983726887")) {
+        url = "https://cc842234.ngrok.io/morfeus/v1/channels/24wn43775241160/message";
+        postRequest(body, url);
+      } else {
         LOGGER.log(Level.INFO, "in else block");
-        //mobileNumber = "918147953938";
         url = "https://router.triniti.ai/fb-flow/ml9zupdo6k/morfeus/v1/channels/177wn22408692407/message";
-        postRequest(body , url);
+        postRequest(body, url);
       }
     }
     catch(Exception e)
