@@ -981,10 +981,7 @@ public class ActiveChannelsWorkflowService {
     try {
       LOGGER.log(Level.INFO, "in try block");
       // url=redisTemplate.opsForValue().get(mobileNumber);
-      if (!url.isEmpty()) {
-        LOGGER.log(Level.INFO, "in if block");
-        postRequest(body, url);
-      } else if (req.getFrom().getNumber().contains("8983726887")) {
+      if (req.getFrom().getNumber().contains("8983726887")) {
         LOGGER.log(Level.INFO, "redirecting to prithvi's local");
         url = "https://cc842234.ngrok.io/morfeus/v1/channels/24wn43775241160/message";
         postRequest(body, url);
