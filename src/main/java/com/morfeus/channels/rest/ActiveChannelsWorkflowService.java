@@ -984,7 +984,7 @@ public class ActiveChannelsWorkflowService {
       if (!url.isEmpty()) {
         LOGGER.log(Level.INFO, "in if block");
         postRequest(body, url);
-      } else if (req.getFrom().getNumber().equalsIgnoreCase("918983726887")) {
+      } else if (req.getFrom().getNumber().contains("918983726887")) {
         url = "https://cc842234.ngrok.io/morfeus/v1/channels/24wn43775241160/message";
         postRequest(body, url);
       } else {
